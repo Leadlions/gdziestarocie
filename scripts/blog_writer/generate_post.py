@@ -185,4 +185,10 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as exc:
+        import traceback
+        print("[FATAL] Unhandled exception:", file=sys.stderr)
+        traceback.print_exc()
+        sys.exit(1)

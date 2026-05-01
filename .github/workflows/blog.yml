@@ -4,7 +4,6 @@ on:
   schedule:
     # Every day at 07:00 UTC
     - cron: '0 7 * * *'
-  # Manual trigger from GitHub Actions UI
   workflow_dispatch:
 
 permissions:
@@ -27,6 +26,17 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r scripts/blog_writer/requirements.txt
+
+      - name: Check API key presence
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "ERROR: ANTHROPIC_API_KEY secret is empty or not set!"
+            exit 1
+          else
+            echo "OK: ANTHROPIC_API_KEY is set (length=${#ANTHROPIC_API_KEY})"
+          fi
 
       - name: Generate blog post
         env:

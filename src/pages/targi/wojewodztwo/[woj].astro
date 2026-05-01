@@ -1,0 +1,123 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import FairCard from '../../../components/FairCard.astro';
+import allFairs from '../../../data/fairs.json';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const meta: Record<string, { label: string; description: string }> = {
+    mazowieckie:          { label: 'Mazowieckie',           description: 'Targi staroci w województwie mazowieckim — Warszawa i okolice.' },
+    malopolskie:          { label: 'Małopolskie',            description: 'Targi staroci w Małopolsce — Kraków, Tarnów i region.' },
+    dolnoslaskie:         { label: 'Dolnośląskie',           description: 'Targi staroci na Dolnym Śląsku — Wrocław i region.' },
+    wielkopolskie:        { label: 'Wielkopolskie',          description: 'Targi staroci w Wielkopolsce — Poznań i okolice.' },
+    lodzkie:              { label: 'Łódzkie',                description: 'Targi staroci w województwie łódzkim.' },
+    pomorskie:            { label: 'Pomorskie',              description: 'Targi staroci na Pomorzu — Gdańsk, Gdynia, Trójmiasto.' },
+    slaskie:              { label: 'Śląskie',                description: 'Targi staroci na Śląsku — Katowice i cały region przemysłowy.' },
+    lubelskie:            { label: 'Lubelskie',              description: 'Targi staroci i kiermusy w województwie lubelskim — tradycyjne jarmarki wschodniej Polski.' },
+    podlaskie:            { label: 'Podlaskie',              description: 'Targi staroci i kiermusy w województwie podlaskim.' },
+    kujawsko_pomorskie:   { label: 'Kujawsko-Pomorskie',    description: 'Targi staroci w województwie kujawsko-pomorskim — Bydgoszcz i Toruń.' },
+    swietokrzyskie:       { label: 'Świętokrzyskie',         description: 'Targi staroci w województwie świętokrzyskim — Kielce i region.' },
+    warminsko_mazurskie:  { label: 'Warmińsko-Mazurskie',   description: 'Targi staroci na Warmii i Mazurach — Olsztyn i okolice.' },
+    podkarpackie:         { label: 'Podkarpackie',           description: 'Targi staroci w województwie podkarpackim — Rzeszów i region.' },
+    zachodniopomorskie:   { label: 'Zachodniopomorskie',     description: 'Targi staroci w województwie zachodniopomorskim — Szczecin i Wybrzeże.' },
+    lubuskie:             { label: 'Lubuskie',               description: 'Targi staroci w województwie lubuskim — Zielona Góra i Gorzów.' },
+    opolskie:             { label: 'Opolskie',               description: 'Targi staroci w województwie opolskim.' },
+  };
+
+  const wojMap = new Map<string, string>();
+  for (const fair of allFairs) {
+    if (fair.voivodeshipSlug && !wojMap.has(fair.voivodeshipSlug)) {
+      wojMap.set(fair.voivodeshipSlug, fair.voivodeship);
+    }
+  }
+
+  return [...wojMap.keys()].map((slug) => ({
+    params: { woj: slug },
+    props: {
+      wojSlug: slug,
+      wojName: meta[slug]?.label ?? slug,
+      meta: meta[slug] ?? { label: slug, description: `Targi staroci w województwie ${slug}.` },
+      fairs: allFairs
+        .filter((f) => f.voivodeshipSlug === slug)
+        .sort((a, b) => new Date(a.nextDate).getTime() - new Date(b.nextDate).getTime()),
+    },
+  }));
+};
+
+interface Props {
+  wojSlug: string;
+  wojName: string;
+  meta: { label: string; description: string };
+  fairs: typeof allFairs;
+}
+
+const { wojSlug, wojName, meta, fairs } = Astro.props;
+
+const fairCount = fairs.length;
+const countLabel = fairCount === 1 ? '1 targ' : fairCount < 5 ? `${fairCount} targi` : `${fairCount} targów`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `Targi staroci – ${meta.label}`,
+  url: `https://gdziestarocie.pl/targi/wojewodztwo/${wojSlug}/`,
+  numberOfItems: fairCount,
+  itemListElement: fairs.map((f, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: f.name,
+    url: `https://gdziestarocie.pl/targi/${f.slug}/`,
+  })),
+};
+---
+
+<Base
+  title={`Targi staroci – ${meta.label} | gdziestarocie.pl`}
+  description={`${meta.description} ${countLabel} w bazie.`}
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Targi', url: 'https://gdziestarocie.pl/targi/' },
+    { name: meta.label, url: `https://gdziestarocie.pl/targi/wojewodztwo/${wojSlug}/` },
+  ]}
+>
+  <section class="border-b border-stone-100 bg-gradient-to-b from-brand-50 to-white px-4 py-12 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      <a href="/" class="mb-4 inline-flex items-center gap-1 text-sm text-stone-500 hover:text-brand-700">
+        ← Wszystkie targi
+      </a>
+      <h1 class="mt-2 text-3xl font-bold text-stone-900 sm:text-4xl">
+        Targi staroci – woj. {meta.label}
+      </h1>
+      <p class="mt-3 max-w-2xl text-stone-600">{meta.description}</p>
+      <p class="mt-2 text-sm text-stone-400">{countLabel} w bazie.</p>
+    </div>
+  </section>
+
+  <section class="px-4 py-10 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      {fairs.length === 0 ? (
+        <div class="rounded-xl border border-dashed border-stone-300 bg-stone-50 px-6 py-12 text-center">
+          <p class="font-medium text-stone-600">Nie mamy jeszcze targów z tego województwa.</p>
+          <p class="mt-2 text-sm text-stone-400">
+            <a href="/" class="text-brand-600 hover:underline">Wróć na stronę główną</a> i przejrzyj wszystkie terminy.
+          </p>
+        </div>
+      ) : (
+        <div class="flex flex-col gap-3">
+          {fairs.map((f) => (
+            <FairCard
+              slug={f.slug}
+              name={f.name}
+              city={f.city}
+              venue={f.venue}
+              nextDate={f.nextDate}
+              recurringDesc={f.recurringDesc}
+              categories={f.categories}
+              reviews={f.reviews}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

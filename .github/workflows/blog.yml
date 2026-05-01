@@ -38,6 +38,19 @@ jobs:
             echo "OK: ANTHROPIC_API_KEY is set (length=${#ANTHROPIC_API_KEY})"
           fi
 
+      - name: List available models
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python - <<'EOF'
+          import anthropic, os
+          client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+          models = client.models.list()
+          print("=== AVAILABLE MODELS ===")
+          for m in models.data:
+              print(m.id)
+          EOF
+
       - name: Generate blog post
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

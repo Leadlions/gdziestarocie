@@ -16,6 +16,8 @@
     "categories": ["antyki", "meble", "ceramika", "bizuteria"],
     "organizer": "Bazar na Kole",
     "url": "https://bazarwkole.pl",
+    "facebook": null,
+    "instagram": null,
     "description": "Jeden z największych i najstarszych targów staroci w Polsce, działający od lat 60. XX wieku. Na Kole znajdziesz meble, ceramikę, szkło, obrazy, biżuterię i wiele innych przedmiotów z przeszłości. Targ czynny każdą niedzielę niezależnie od pogody — przyjeżdżają tu wystawcy z całej Polski.",
     "reviews": [
       { "author": "Anna M.", "rating": 5, "text": "Byłam kilka razy i zawsze coś znalazłam. Ogromny wybór, dużo wystawców. Ceny można negocjować, a sprzedawcy są zazwyczaj chętni do rozmowy o historii swoich przedmiotów.", "date": "2026-03-15" },
@@ -44,6 +46,8 @@
     "categories": ["antyki", "ceramika", "obrazy", "ksiazki"],
     "organizer": null,
     "url": null,
+    "facebook": null,
+    "instagram": null,
     "description": "Cykliczne targi staroci odbywające się na krakowskim Rynku Głównym w otoczeniu Sukiennic. Wyjątkowa atmosfera historycznego centrum Krakowa tworzy doskonałe tło dla kolekcjonerów i miłośników dawnych przedmiotów. Znajdziesz tu głównie ceramikę, stare książki, mapy, obrazy i biżuterię.",
     "reviews": [
       { "author": "Krzysztof W.", "rating": 5, "text": "Niezwykłe miejsce, niezwykła atmosfera. Rynek Główny jako tło dla targów staroci — lepiej się nie da. Kupiłem tu mapę Krakowa z 1938 roku za rozsądną cenę.", "date": "2026-04-19" },
@@ -70,6 +74,8 @@
     "categories": ["antyki", "meble", "numizmatyka", "ceramika"],
     "organizer": null,
     "url": null,
+    "facebook": null,
+    "instagram": null,
     "description": "Targi staroci na poznańskim Starym Rynku to tradycja sięgająca lat 90. Wystawcy oferują szeroki wybór antyków, staroci, kolekcjonerskich monet i banknotów, a także mebli i ceramiki. Lokalizacja przy Ratuszu jest jedną z najpiękniejszych w Polsce.",
     "reviews": [
       { "author": "Tomasz B.", "rating": 4, "text": "Solidny targ, dobry wybór monet i banknotów. Numizmatycy z całego Poznania tu się spotykają. Ceny rynkowe, ale można coś ciekawego trafić.", "date": "2026-04-21" }
@@ -93,6 +99,8 @@
     "categories": ["antyki", "meble", "ceramika", "winyle"],
     "organizer": null,
     "url": null,
+    "facebook": null,
+    "instagram": null,
     "description": "Popularne targi staroci we Wrocławiu odbywające się na terenie przy zabytkowej Hali Stulecia (UNESCO). Bogata oferta antyków, starych mebli, ceramiki i płyt winylowych. Jedno z największych wydarzeń tego typu na Dolnym Śląsku.",
     "reviews": [
       { "author": "Monika Z.", "rating": 4, "text": "Sporo wystawców, dobrze zorganizowane. Znalazłam piękny serwis kawowy Ćmielów za rozsądną cenę. Płyty winylowe od kilku wystawców w dobrym stanie.", "date": "2026-04-06" },
@@ -119,6 +127,8 @@
     "categories": ["antyki", "bizuteria", "zabawki", "ksiazki"],
     "organizer": null,
     "url": null,
+    "facebook": null,
+    "instagram": null,
     "description": "Łódzkie targi staroci na Placu Wolności to stały punkt spotkań kolekcjonerów i miłośników vintage z całego regionu. W ofercie: przedwojenna biżuteria, zabawki PRL, stare książki i plakaty filmowe — to miejsce, gdzie historia łódzkiego przemysłu i kultury jest namacalna.",
     "reviews": [],
     "mentions": []
@@ -140,6 +150,8 @@
     "categories": ["antyki", "militaria", "ceramika", "obrazy"],
     "organizer": null,
     "url": null,
+    "facebook": null,
+    "instagram": null,
     "description": "Targi staroci w historycznym sercu Gdańska, na Targu Rybnym przy dawnym kanale portowym. Silna specjalność: militaria i marynistyka — tu można trafić na prawdziwe gdańskie osobliwości. Wyjątkowa lokalizacja w starówce przyciąga zarówno kolekcjonerów, jak i turystów.",
     "reviews": [
       { "author": "Henryk S.", "rating": 5, "text": "Jedyne miejsce w Polsce, gdzie widziałem takie skupisko militariów morskich i pamiątek po Stoczni Gdańskiej. Dla historycznych pasjonatów — obowiązkowy punkt.", "date": "2026-04-26" }
@@ -165,28 +177,32 @@
     "categories": ["antyki", "militaria", "numizmatyka", "winyle"],
     "organizer": null,
     "url": null,
+    "facebook": null,
+    "instagram": null,
     "description": "Śląskie Targi Staroci odbywające się na katowickim Rynku to świetna okazja do znalezienia pamiątek po śląskim przemyśle, militariów i górniczych osobliwości. Mocne punkty: numizmatyka, militaria i stara grafika regionalna.",
     "reviews": [],
     "mentions": []
   },
   {
-    "slug": "kiermusy-biala-podlaska",
-    "name": "Kiermusy w Białej Podlaskiej",
-    "city": "Biała Podlaska",
-    "citySlug": "biala-podlaska",
-    "voivodeship": "lubelskie",
-    "voivodeshipSlug": "lubelskie",
-    "venue": "Centrum, okolice Pl. Wolności",
-    "lat": 52.0310,
-    "lng": 23.1244,
+    "slug": "kiermusy-tykocin",
+    "name": "Jarmark w Kiermusach",
+    "city": "Tykocin",
+    "citySlug": "tykocin",
+    "voivodeship": "podlaskie",
+    "voivodeshipSlug": "podlaskie",
+    "venue": "Dworek w Kiermusach, Kiermusy 2",
+    "lat": 53.2115,
+    "lng": 22.8012,
     "nextDate": "2026-05-31",
     "recurring": "sezonowo",
-    "recurringDesc": "wiosna–jesień, niedziele",
+    "recurringDesc": "wiosna–jesień, wybrane niedziele",
     "hours": null,
     "categories": ["antyki", "ceramika", "ksiazki", "zabawki"],
-    "organizer": null,
+    "organizer": "Dworek w Kiermusach",
     "url": null,
-    "description": "Kiermusy to tradycyjna forma jarmarku głęboko zakorzeniona we wschodniej Polsce, wywodząca się z odpustów parafialnych organizowanych przy kościołach. W Białej Podlaskiej odbywają się sezonowo i oferują szeroki asortyment — od staroci i antyków po rękodzieło i produkty regionalne. Dla kolekcjonerów szczególnie interesujące są wyroby ceramiczne, stare druki i pamiątki po ziemiaństwie Podlasia.",
+    "facebook": null,
+    "instagram": null,
+    "description": "Kiermusy to wieś nieopodal Tykocina nad Narwią, gdzie w zabytkowym dworku organizowane są sezonowe jarmarki i targi staroci. Imprezy nawiązują do tradycji kiermusów — dawnych odpustów parafialnych głęboko zakorzenionych w kulturze wschodniej Polski. W ofercie znajdziesz wyroby ceramiczne, stare druki, pamiątki po ziemiaństwie Podlasia oraz rękodzieło regionalne. Wyjątkowa sceneria dworku nad rzeką sprawia, że to jedno z najbardziej klimatycznych miejsc targowych w Polsce.",
     "reviews": [],
     "mentions": []
   }

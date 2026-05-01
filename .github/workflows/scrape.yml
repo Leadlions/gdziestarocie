@@ -2,8 +2,8 @@ name: Scrape Antique Fairs
 
 on:
   schedule:
-    # 1st of every month at 06:00 UTC
-    - cron: '0 6 1 * *'
+    # 1st and 15th of every month at 06:00 UTC
+    - cron: '0 6 1,15 * *'
   # Allow manual trigger from the GitHub Actions UI
   workflow_dispatch:
 

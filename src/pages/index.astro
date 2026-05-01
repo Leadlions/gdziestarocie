@@ -82,7 +82,7 @@ const jsonLd = {
       </h1>
       <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-stone-600">
         Jeden portal, wszystkie terminy. Znajdź targi antykwaryczne w swoim mieście,
-        sprawdź opinie i wzmianki medialne — zanim wyruszysz.
+        sprawdź opinie i wzmianki medialne - zanim wyruszysz.
       </p>
 
       <!-- Wyszukiwarka -->
@@ -94,7 +94,7 @@ const jsonLd = {
           <input
             id="city-search"
             type="text"
-            placeholder="Wpisz miasto, datę lub nazwę targu..."
+            placeholder="Wpisz miasto, województwo, datę lub nazwę targu..."
             autocomplete="off"
             class="w-full rounded-xl border border-stone-200 bg-white py-4 pl-12 pr-4 text-stone-900 shadow-sm placeholder:text-stone-400 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100"
           />
@@ -137,6 +137,8 @@ const jsonLd = {
             data-name={f.name.toLowerCase()}
             data-date={dateSearchStr(f.nextDate)}
             data-categories={f.categories.join(',')}
+            data-voivodeship={f.voivodeshipSlug}
+            data-voivodeship-name={f.voivodeship.toLowerCase()}
           >
             <FairCard
               slug={f.slug}
@@ -163,9 +165,9 @@ const jsonLd = {
   <section class="border-y border-stone-100 bg-stone-50 px-4 py-10 sm:px-6">
     <div class="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
       {[
-        { step: '01', title: 'Znajdź targi', desc: 'Wpisz miasto lub wybierz kategorię — zobaczysz najbliższe terminy.' },
+        { step: '01', title: 'Znajdź targi', desc: 'Wpisz miasto lub wybierz kategorię - zobaczysz najbliższe terminy.' },
         { step: '02', title: 'Sprawdź opinie', desc: 'Przeczytaj co mówią inni kolekcjonerzy przed wizytą.' },
-        { step: '03', title: 'Jedź i zbieraj', desc: 'Wejdź wcześnie rano — najlepsze eksponaty znikają przed południem.' },
+        { step: '03', title: 'Jedź i zbieraj', desc: 'Wejdź wcześnie rano - najlepsze eksponaty znikają przed południem.' },
       ].map(({ step, title, desc }) => (
         <div class="flex items-start gap-4">
           <span class="shrink-0 text-2xl font-bold text-brand-200">{step}</span>
@@ -249,8 +251,10 @@ const jsonLd = {
       const city = norm(item.dataset.city ?? '');
       const name = norm(item.dataset.name ?? '');
       const date = norm(item.dataset.date ?? '');
+      const woj = norm(item.dataset.voivodeship ?? '');
+      const wojName = norm(item.dataset.voivodeshipName ?? '');
       const cats = (item.dataset.categories ?? '').split(',');
-      const textMatch = !query || city.includes(query) || name.includes(query) || date.includes(query);
+      const textMatch = !query || city.includes(query) || name.includes(query) || date.includes(query) || woj.includes(query) || wojName.includes(query);
       const catMatch = !activeCategory || cats.includes(activeCategory);
       const show = textMatch && catMatch;
       item.style.display = show ? '' : 'none';

@@ -4,31 +4,31 @@ import Base from '../../../layouts/Base.astro';
 import FairCard from '../../../components/FairCard.astro';
 import allFairs from '../../../data/fairs.json';
 
-// Must be defined inside getStaticPaths — Astro compiles it to a separate scope
+// Must be defined inside getStaticPaths - Astro compiles it to a separate scope
 const CATEGORY_META: Record<string, { label: string; description: string }> = {
-  antyki:      { label: 'Antyki',              description: 'Targi staroci i antykwaryczne z bogatą ofertą antyków — przedmiotów historycznych, kolekcjonerskich i artystycznych.' },
-  meble:       { label: 'Meble vintage',        description: 'Targi z meblami vintage i retro — szafy, kredensy, fotele i stoły z duszą.' },
-  ceramika:    { label: 'Ceramika i porcelana', description: 'Targi z ceramiką, porcelaną i szkłem artystycznym — Ćmielów, Włocławek i inne klasyki.' },
-  bizuteria:   { label: 'Biżuteria i zegarki', description: 'Targi z biżuterią srebrną, złotą i zegarkami — od przedwojennych kamei po zegarki kieszonkowe.' },
-  numizmatyka: { label: 'Monety i banknoty',   description: 'Targi numizmatyczne — monety, banknoty, znaczki pocztowe i inne przedmioty kolekcjonerskie.' },
+  antyki:      { label: 'Antyki',              description: 'Targi staroci i antykwaryczne z bogatą ofertą antyków - przedmiotów historycznych, kolekcjonerskich i artystycznych.' },
+  meble:       { label: 'Meble vintage',        description: 'Targi z meblami vintage i retro - szafy, kredensy, fotele i stoły z duszą.' },
+  ceramika:    { label: 'Ceramika i porcelana', description: 'Targi z ceramiką, porcelaną i szkłem artystycznym - Ćmielów, Włocławek i inne klasyki.' },
+  bizuteria:   { label: 'Biżuteria i zegarki', description: 'Targi z biżuterią srebrną, złotą i zegarkami - od przedwojennych kamei po zegarki kieszonkowe.' },
+  numizmatyka: { label: 'Monety i banknoty',   description: 'Targi numizmatyczne - monety, banknoty, znaczki pocztowe i inne przedmioty kolekcjonerskie.' },
   ksiazki:     { label: 'Książki i mapy',       description: 'Targi z antykwarycznymi książkami, starymi mapami i pocztówkami.' },
-  zabawki:     { label: 'Zabawki vintage',      description: 'Targi z zabawkami PRL i vintage — blaszane auta, lalki celuloidowe, gry planszowe.' },
-  militaria:   { label: 'Militaria',            description: 'Targi z militariami — ordery, odznaczenia, mundury, broń biała i pamiątki wojenne.' },
-  obrazy:      { label: 'Obrazy i grafiki',     description: 'Targi z malarstwa i grafiki — obrazy olejne, akwarele, stare fotografie i plakaty.' },
+  zabawki:     { label: 'Zabawki vintage',      description: 'Targi z zabawkami PRL i vintage - blaszane auta, lalki celuloidowe, gry planszowe.' },
+  militaria:   { label: 'Militaria',            description: 'Targi z militariami - ordery, odznaczenia, mundury, broń biała i pamiątki wojenne.' },
+  obrazy:      { label: 'Obrazy i grafiki',     description: 'Targi z malarstwa i grafiki - obrazy olejne, akwarele, stare fotografie i plakaty.' },
   winyle:      { label: 'Winyle i audio',       description: 'Targi z płytami winylowymi, sprzętem audio i muzykaliami vintage.' },
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
   const meta: Record<string, { label: string; description: string }> = {
-    antyki:      { label: 'Antyki',              description: 'Targi staroci i antykwaryczne z bogatą ofertą antyków — przedmiotów historycznych, kolekcjonerskich i artystycznych.' },
-    meble:       { label: 'Meble vintage',        description: 'Targi z meblami vintage i retro — szafy, kredensy, fotele i stoły z duszą.' },
-    ceramika:    { label: 'Ceramika i porcelana', description: 'Targi z ceramiką, porcelaną i szkłem artystycznym — Ćmielów, Włocławek i inne klasyki.' },
-    bizuteria:   { label: 'Biżuteria i zegarki', description: 'Targi z biżuterią srebrną, złotą i zegarkami — od przedwojennych kamei po zegarki kieszonkowe.' },
-    numizmatyka: { label: 'Monety i banknoty',   description: 'Targi numizmatyczne — monety, banknoty, znaczki pocztowe i inne przedmioty kolekcjonerskie.' },
+    antyki:      { label: 'Antyki',              description: 'Targi staroci i antykwaryczne z bogatą ofertą antyków - przedmiotów historycznych, kolekcjonerskich i artystycznych.' },
+    meble:       { label: 'Meble vintage',        description: 'Targi z meblami vintage i retro - szafy, kredensy, fotele i stoły z duszą.' },
+    ceramika:    { label: 'Ceramika i porcelana', description: 'Targi z ceramiką, porcelaną i szkłem artystycznym - Ćmielów, Włocławek i inne klasyki.' },
+    bizuteria:   { label: 'Biżuteria i zegarki', description: 'Targi z biżuterią srebrną, złotą i zegarkami - od przedwojennych kamei po zegarki kieszonkowe.' },
+    numizmatyka: { label: 'Monety i banknoty',   description: 'Targi numizmatyczne - monety, banknoty, znaczki pocztowe i inne przedmioty kolekcjonerskie.' },
     ksiazki:     { label: 'Książki i mapy',       description: 'Targi z antykwarycznymi książkami, starymi mapami i pocztówkami.' },
-    zabawki:     { label: 'Zabawki vintage',      description: 'Targi z zabawkami PRL i vintage — blaszane auta, lalki celuloidowe, gry planszowe.' },
-    militaria:   { label: 'Militaria',            description: 'Targi z militariami — ordery, odznaczenia, mundury, broń biała i pamiątki wojenne.' },
-    obrazy:      { label: 'Obrazy i grafiki',     description: 'Targi z malarstwa i grafiki — obrazy olejne, akwarele, stare fotografie i plakaty.' },
+    zabawki:     { label: 'Zabawki vintage',      description: 'Targi z zabawkami PRL i vintage - blaszane auta, lalki celuloidowe, gry planszowe.' },
+    militaria:   { label: 'Militaria',            description: 'Targi z militariami - ordery, odznaczenia, mundury, broń biała i pamiątki wojenne.' },
+    obrazy:      { label: 'Obrazy i grafiki',     description: 'Targi z malarstwa i grafiki - obrazy olejne, akwarele, stare fotografie i plakaty.' },
     winyle:      { label: 'Winyle i audio',       description: 'Targi z płytami winylowymi, sprzętem audio i muzykaliami vintage.' },
   };
 

@@ -13,20 +13,31 @@
     "recurring": "tygodniowo",
     "recurringDesc": "każda niedziela, godz. 6:00–14:00",
     "hours": "6:00–14:00",
-    "categories": ["antyki", "meble", "ceramika", "bizuteria"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika",
+      "bizuteria"
+    ],
     "organizer": "Bazar na Kole",
     "url": "https://bazarwkole.pl",
     "facebook": null,
     "instagram": null,
-    "description": "Jeden z największych i najstarszych targów staroci w Polsce, działający od lat 60. XX wieku. Na Kole znajdziesz meble, ceramikę, szkło, obrazy, biżuterię i wiele innych przedmiotów z przeszłości. Targ czynny każdą niedzielę niezależnie od pogody — przyjeżdżają tu wystawcy z całej Polski.",
-    "reviews": [
-      { "author": "Anna M.", "rating": 5, "text": "Byłam kilka razy i zawsze coś znalazłam. Ogromny wybór, dużo wystawców. Ceny można negocjować, a sprzedawcy są zazwyczaj chętni do rozmowy o historii swoich przedmiotów.", "date": "2026-03-15" },
-      { "author": "Piotr K.", "rating": 4, "text": "Dobry targ, klimatyczne miejsce. Trochę drogo jak na targi staroci, ale można się potargować. Meble vintage w przyzwoitych cenach, ceramika PRL na każdym stoisku.", "date": "2026-02-22" },
-      { "author": "Dorota W.", "rating": 5, "text": "Kultowe miejsce. Trzeba przyjechać wcześnie rano, przed 8:00, żeby złapać najlepsze rzeczy. Parking jest, ale bywa trudno w niedzielę.", "date": "2026-01-18" }
-    ],
+    "description": "Jeden z największych i najstarszych targów staroci w Polsce, działający od lat 60. XX wieku. Na Kole znajdziesz meble, ceramikę, szkło, obrazy, biżuterię i wiele innych przedmiotów z przeszłości. Targ czynny każdą niedzielę niezależnie od pogody - przyjeżdżają tu wystawcy z całej Polski.",
+    "reviews": [],
     "mentions": [
-      { "source": "Gazeta Wyborcza Warszawa", "url": "https://warszawa.wyborcza.pl/", "snippet": "Bazar na Kole to jedno z ostatnich miejsc w Warszawie, gdzie można poczuć klimat dawnych targowisk i znaleźć prawdziwe antykwaryczne perełki.", "date": "2025-11-10" },
-      { "source": "Time Out Warszawa", "url": "https://www.timeout.com/warsaw/", "snippet": "Warsaw's biggest flea market runs every Sunday rain or shine — a must-visit for vintage hunters.", "date": "2025-09-05" }
+      {
+        "source": "Gazeta Wyborcza Warszawa",
+        "url": "https://warszawa.wyborcza.pl/",
+        "snippet": "Bazar na Kole to jedno z ostatnich miejsc w Warszawie, gdzie można poczuć klimat dawnych targowisk i znaleźć prawdziwe antykwaryczne perełki.",
+        "date": "2025-11-10"
+      },
+      {
+        "source": "Time Out Warszawa",
+        "url": "https://www.timeout.com/warsaw/",
+        "snippet": "Warsaw's biggest flea market runs every Sunday rain or shine - a must-visit for vintage hunters.",
+        "date": "2025-09-05"
+      }
     ]
   },
   {
@@ -37,13 +48,19 @@
     "voivodeship": "mazowieckie",
     "voivodeshipSlug": "mazowieckie",
     "venue": "Targowisko Falenica, ul. Trocinowa 1",
-    "lat": 52.1610,
+    "lat": 52.161,
     "lng": 21.1792,
     "nextDate": "2026-05-10",
     "recurring": "miesiecznie",
     "recurringDesc": "druga niedziela miesiąca, godz. 8:00–15:00",
     "hours": "8:00–15:00",
-    "categories": ["antyki", "ceramika", "numizmatyka", "bizuteria", "obrazy"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "numizmatyka",
+      "bizuteria",
+      "obrazy"
+    ],
     "organizer": "Fundacja Wawer",
     "url": "https://www.falenicastarocie.pl",
     "facebook": null,
@@ -66,18 +83,25 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia sobota miesiąca, godz. 8:00–16:00",
     "hours": "8:00–16:00",
-    "categories": ["antyki", "ceramika", "obrazy", "ksiazki"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "obrazy",
+      "ksiazki"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
     "description": "Cykliczne targi staroci odbywające się na krakowskim Rynku Głównym w otoczeniu Sukiennic. Wyjątkowa atmosfera historycznego centrum Krakowa tworzy doskonałe tło dla kolekcjonerów i miłośników dawnych przedmiotów. Znajdziesz tu głównie ceramikę, stare książki, mapy, obrazy i biżuterię.",
-    "reviews": [
-      { "author": "Krzysztof W.", "rating": 5, "text": "Niezwykłe miejsce, niezwykła atmosfera. Rynek Główny jako tło dla targów staroci — lepiej się nie da. Kupiłem tu mapę Krakowa z 1938 roku za rozsądną cenę.", "date": "2026-04-19" },
-      { "author": "Magdalena R.", "rating": 4, "text": "Mniej stoisk niż np. na Kole w Warszawie, ale klimat wyjątkowy. Ceramika i porcelana są tu w dobrej cenie. Polecam przyjść rano.", "date": "2026-03-22" }
-    ],
+    "reviews": [],
     "mentions": [
-      { "source": "Kraków.pl (portal miasta)", "url": "https://www.krakow.pl/", "snippet": "Targi na Rynku Głównym cieszą się ogromną popularnością wśród krakowian i turystów — to stały element kulturalnego kalendarza miasta.", "date": "2026-01-20" }
+      {
+        "source": "Kraków.pl (portal miasta)",
+        "url": "https://www.krakow.pl/",
+        "snippet": "Targi na Rynku Głównym cieszą się ogromną popularnością wśród krakowian i turystów - to stały element kulturalnego kalendarza miasta.",
+        "date": "2026-01-20"
+      }
     ]
   },
   {
@@ -94,12 +118,20 @@
     "recurring": "tygodniowo",
     "recurringDesc": "każda niedziela, godz. 6:00–13:00",
     "hours": "6:00–13:00",
-    "categories": ["antyki", "meble", "ceramika", "bizuteria", "obrazy", "numizmatyka", "militaria"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika",
+      "bizuteria",
+      "obrazy",
+      "numizmatyka",
+      "militaria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Jedna z największych i najstarszych giełd staroci w Krakowie, odbywająca się przy Hali Targowej na Grzegórzkach. Setki wystawców co tydzień — można tu znaleźć dosłownie wszystko: od mebli PRL, przez ceramikę i militaria, po stare pocztówki i biżuterię. Handlarze zjawiają się od 5:00.",
+    "description": "Jedna z największych i najstarszych giełd staroci w Krakowie, odbywająca się przy Hali Targowej na Grzegórzkach. Setki wystawców co tydzień - można tu znaleźć dosłownie wszystko: od mebli PRL, przez ceramikę i militaria, po stare pocztówki i biżuterię. Handlarze zjawiają się od 5:00.",
     "reviews": [],
     "mentions": []
   },
@@ -117,7 +149,14 @@
     "recurring": "tygodniowo",
     "recurringDesc": "soboty godz. 9:00–14:00, niedziele godz. 7:00–14:00",
     "hours": "7:00–14:00",
-    "categories": ["antyki", "meble", "ceramika", "bizuteria", "obrazy", "numizmatyka"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika",
+      "bizuteria",
+      "obrazy",
+      "numizmatyka"
+    ],
     "organizer": null,
     "url": "https://www.balicka.pl",
     "facebook": null,
@@ -140,15 +179,18 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia niedziela miesiąca",
     "hours": null,
-    "categories": ["antyki", "meble", "numizmatyka", "ceramika"],
+    "categories": [
+      "antyki",
+      "meble",
+      "numizmatyka",
+      "ceramika"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
     "description": "Targi staroci na poznańskim Starym Rynku to tradycja sięgająca lat 90. Wystawcy oferują szeroki wybór antyków, staroci, kolekcjonerskich monet i banknotów, a także mebli i ceramiki. Lokalizacja przy Ratuszu jest jedną z najpiękniejszych w Polsce.",
-    "reviews": [
-      { "author": "Tomasz B.", "rating": 4, "text": "Solidny targ, dobry wybór monet i banknotów. Numizmatycy z całego Poznania tu się spotykają. Ceny rynkowe, ale można coś ciekawego trafić.", "date": "2026-04-21" }
-    ],
+    "reviews": [],
     "mentions": []
   },
   {
@@ -165,12 +207,20 @@
     "recurring": "miesiecznie",
     "recurringDesc": "druga sobota miesiąca, godz. 6:00–14:00",
     "hours": "6:00–14:00",
-    "categories": ["antyki", "numizmatyka", "ceramika", "bizuteria", "meble", "obrazy", "militaria"],
+    "categories": [
+      "antyki",
+      "numizmatyka",
+      "ceramika",
+      "bizuteria",
+      "meble",
+      "obrazy",
+      "militaria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Giełda antyków przy centrum handlowym Auchan Komorniki — dobrze zorganizowana, z regularną obsadą wystawców specjalizujących się w numizmatyce, ceramice i militariach. Pchli targ z podobnym profilem odbywa się tu też co niedzielę.",
+    "description": "Giełda antyków przy centrum handlowym Auchan Komorniki - dobrze zorganizowana, z regularną obsadą wystawców specjalizujących się w numizmatyce, ceramice i militariach. Pchli targ z podobnym profilem odbywa się tu też co niedzielę.",
     "reviews": [],
     "mentions": []
   },
@@ -188,18 +238,25 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwsza niedziela miesiąca, godz. 8:00–15:00",
     "hours": "8:00–15:00",
-    "categories": ["antyki", "meble", "ceramika", "winyle"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika",
+      "winyle"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
     "description": "Popularne targi staroci we Wrocławiu odbywające się na terenie przy zabytkowej Hali Stulecia (UNESCO). Bogata oferta antyków, starych mebli, ceramiki i płyt winylowych. Jedno z największych wydarzeń tego typu na Dolnym Śląsku.",
-    "reviews": [
-      { "author": "Monika Z.", "rating": 4, "text": "Sporo wystawców, dobrze zorganizowane. Znalazłam piękny serwis kawowy Ćmielów za rozsądną cenę. Płyty winylowe od kilku wystawców w dobrym stanie.", "date": "2026-04-06" },
-      { "author": "Ryszard P.", "rating": 3, "text": "Fajne miejsce, ale w ostatnich miesiącach spada liczba wystawców. Mam nadzieję, że to chwilowe. Meble wciąż w dobrej cenie.", "date": "2026-03-02" }
-    ],
+    "reviews": [],
     "mentions": [
-      { "source": "Wrocław Nasze Miasto", "url": "https://wroclaw.naszemiasto.pl/", "snippet": "Targi przy Hali Stulecia przyciągają w każdą pierwszą niedzielę miesiąca setki miłośników antyków i staroci z całego regionu.", "date": "2026-02-05" }
+      {
+        "source": "Wrocław Nasze Miasto",
+        "url": "https://wroclaw.naszemiasto.pl/",
+        "snippet": "Targi przy Hali Stulecia przyciągają w każdą pierwszą niedzielę miesiąca setki miłośników antyków i staroci z całego regionu.",
+        "date": "2026-02-05"
+      }
     ]
   },
   {
@@ -216,18 +273,23 @@
     "recurring": "miesiecznie",
     "recurringDesc": "czwarta niedziela miesiąca",
     "hours": null,
-    "categories": ["antyki", "bizuteria", "zabawki", "ksiazki"],
+    "categories": [
+      "antyki",
+      "bizuteria",
+      "zabawki",
+      "ksiazki"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Łódzkie targi staroci na Placu Wolności to stały punkt spotkań kolekcjonerów i miłośników vintage z całego regionu. W ofercie: przedwojenna biżuteria, zabawki PRL, stare książki i plakaty filmowe — to miejsce, gdzie historia łódzkiego przemysłu i kultury jest namacalna.",
+    "description": "Łódzkie targi staroci na Placu Wolności to stały punkt spotkań kolekcjonerów i miłośników vintage z całego regionu. W ofercie: przedwojenna biżuteria, zabawki PRL, stare książki i plakaty filmowe - to miejsce, gdzie historia łódzkiego przemysłu i kultury jest namacalna.",
     "reviews": [],
     "mentions": []
   },
   {
     "slug": "stacja-ksiezy-mlyn-lodz",
-    "name": "Stacja Łódź — Targ Staroci i Rękodzieła",
+    "name": "Stacja Łódź - Targ Staroci i Rękodzieła",
     "city": "Łódź",
     "citySlug": "lodz",
     "voivodeship": "łódzkie",
@@ -239,12 +301,18 @@
     "recurring": "miesiecznie",
     "recurringDesc": "jedna niedziela miesiąca kwiecień–grudzień, godz. 11:00–18:00",
     "hours": "11:00–18:00",
-    "categories": ["antyki", "winyle", "ksiazki", "ceramika", "obrazy"],
+    "categories": [
+      "antyki",
+      "winyle",
+      "ksiazki",
+      "ceramika",
+      "obrazy"
+    ],
     "organizer": "Przędzalnia Sztuki",
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Targi staroci i rękodzieła w industrialnym wnętrzu zabytkowej fabryki na Księżym Młynie. Klimatyczne miejsce dla miłośników vintage z ambicją — tu obok antyków znajdziesz lokalnych projektantów i wydawców. Późniejsze godziny (od 11:00) sprawiają, że to targ dla tych, którzy cenią komfort nad wczesne polowanie.",
+    "description": "Targi staroci i rękodzieła w industrialnym wnętrzu zabytkowej fabryki na Księżym Młynie. Klimatyczne miejsce dla miłośników vintage z ambicją - tu obok antyków znajdziesz lokalnych projektantów i wydawców. Późniejsze godziny (od 11:00) sprawiają, że to targ dla tych, którzy cenią komfort nad wczesne polowanie.",
     "reviews": [],
     "mentions": []
   },
@@ -256,23 +324,31 @@
     "voivodeship": "pomorskie",
     "voivodeshipSlug": "pomorskie",
     "venue": "Targ Rybny (Stare Miasto)",
-    "lat": 54.3500,
+    "lat": 54.35,
     "lng": 18.6534,
     "nextDate": "2026-05-30",
     "recurring": "miesiecznie",
     "recurringDesc": "ostatnia sobota miesiąca, godz. 9:00–16:00",
     "hours": "9:00–16:00",
-    "categories": ["antyki", "militaria", "ceramika", "obrazy"],
+    "categories": [
+      "antyki",
+      "militaria",
+      "ceramika",
+      "obrazy"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Targi staroci w historycznym sercu Gdańska, na Targu Rybnym przy dawnym kanale portowym. Silna specjalność: militaria i marynistyka — tu można trafić na prawdziwe gdańskie osobliwości. Wyjątkowa lokalizacja w starówce przyciąga zarówno kolekcjonerów, jak i turystów.",
-    "reviews": [
-      { "author": "Henryk S.", "rating": 5, "text": "Jedyne miejsce w Polsce, gdzie widziałem takie skupisko militariów morskich i pamiątek po Stoczni Gdańskiej. Dla historycznych pasjonatów — obowiązkowy punkt.", "date": "2026-04-26" }
-    ],
+    "description": "Targi staroci w historycznym sercu Gdańska, na Targu Rybnym przy dawnym kanale portowym. Silna specjalność: militaria i marynistyka - tu można trafić na prawdziwe gdańskie osobliwości. Wyjątkowa lokalizacja w starówce przyciąga zarówno kolekcjonerów, jak i turystów.",
+    "reviews": [],
     "mentions": [
-      { "source": "Trojmiasto.pl", "url": "https://www.trojmiasto.pl/", "snippet": "Gdański Targ Rybny to jedno z najbardziej klimatycznych miejsc na targi staroci — historia czuć tu na każdym kroku.", "date": "2026-03-30" }
+      {
+        "source": "Trojmiasto.pl",
+        "url": "https://www.trojmiasto.pl/",
+        "snippet": "Gdański Targ Rybny to jedno z najbardziej klimatycznych miejsc na targi staroci - historia czuć tu na każdym kroku.",
+        "date": "2026-03-30"
+      }
     ]
   },
   {
@@ -289,12 +365,16 @@
     "recurring": "sezonowo",
     "recurringDesc": "niedziele maj–wrzesień, godz. 9:00–15:00",
     "hours": "9:00–15:00",
-    "categories": ["antyki", "bizuteria", "ksiazki"],
+    "categories": [
+      "antyki",
+      "bizuteria",
+      "ksiazki"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Sezonowy pchli targ na uroczym ryneczku w gdańskiej Oliwie, w cieniu parku i Katedry Oliwskiej. Kameralny i klimatyczny — więcej tu rękodzieła i niespodzianek niż ciężkich antyków. Dobry punkt wypadowy przy Parku Oliwskim.",
+    "description": "Sezonowy pchli targ na uroczym ryneczku w gdańskiej Oliwie, w cieniu parku i Katedry Oliwskiej. Kameralny i klimatyczny - więcej tu rękodzieła i niespodzianek niż ciężkich antyków. Dobry punkt wypadowy przy Parku Oliwskim.",
     "reviews": [],
     "mentions": []
   },
@@ -312,12 +392,15 @@
     "recurring": "sezonowo",
     "recurringDesc": "kilka terminów czerwiec–sierpień, godz. 10:00–14:00",
     "hours": "10:00–14:00",
-    "categories": ["antyki", "bizuteria"],
+    "categories": [
+      "antyki",
+      "bizuteria"
+    ],
     "organizer": "Gdyńskie Centrum Kultury",
     "url": "https://gck.gdynia.pl",
     "facebook": null,
     "instagram": null,
-    "description": "Letnie targi staroci na gdyńskim woonerfu przy ul. Abrahama, organizowane przez Gdyńskie Centrum Kultury. Kilka terminów w sezonie — warto śledzić na stronie GCK. Miejsce na świeżym powietrzu z deptakowym klimatem Śródmieścia Gdyni.",
+    "description": "Letnie targi staroci na gdyńskim woonerfu przy ul. Abrahama, organizowane przez Gdyńskie Centrum Kultury. Kilka terminów w sezonie - warto śledzić na stronie GCK. Miejsce na świeżym powietrzu z deptakowym klimatem Śródmieścia Gdyni.",
     "reviews": [],
     "mentions": []
   },
@@ -335,7 +418,12 @@
     "recurring": "miesiecznie",
     "recurringDesc": "druga niedziela miesiąca",
     "hours": null,
-    "categories": ["antyki", "militaria", "numizmatyka", "winyle"],
+    "categories": [
+      "antyki",
+      "militaria",
+      "numizmatyka",
+      "winyle"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
@@ -358,7 +446,12 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwszy piątek i sobota miesiąca, godz. 7:00–15:00",
     "hours": "7:00–15:00",
-    "categories": ["meble", "obrazy", "ceramika", "bizuteria"],
+    "categories": [
+      "meble",
+      "obrazy",
+      "ceramika",
+      "bizuteria"
+    ],
     "organizer": null,
     "url": "https://pik.katowice.pl",
     "facebook": null,
@@ -381,12 +474,19 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia sobota miesiąca, godz. 5:00–17:00",
     "hours": "5:00–17:00",
-    "categories": ["antyki", "meble", "ceramika", "numizmatyka", "militaria", "ksiazki"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika",
+      "numizmatyka",
+      "militaria",
+      "ksiazki"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Duże targi staroci w centrum Częstochowy, cieszące się opinią jednych z lepiej zaopatrzonych w regionie. Godziny „od świtu" (od 5:00) — kto wcześnie przyjedzie, ma szansę na prawdziwe znalezisko. Silny profil: meble, militaria i numizmatyka.",
+    "description": "Duże targi staroci w centrum Częstochowy, cieszące się opinią jednych z lepiej zaopatrzonych w regionie. Godziny „od świtu” (od 5:00) - kto wcześnie przyjedzie, ma szansę na prawdziwe znalezisko. Silny profil: meble, militaria i numizmatyka.",
     "reviews": [],
     "mentions": []
   },
@@ -404,12 +504,20 @@
     "recurring": "miesiecznie",
     "recurringDesc": "ostatnia niedziela miesiąca, godz. 7:00–14:00",
     "hours": "7:00–14:00",
-    "categories": ["antyki", "meble", "ceramika", "bizuteria", "numizmatyka", "obrazy", "militaria"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika",
+      "bizuteria",
+      "numizmatyka",
+      "obrazy",
+      "militaria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Comiesięczna giełda staroci z widokiem na Zamek Lubelski — jedno z najpiękniej położonych targowisk w Polsce. Szeroka oferta: meble, ceramika, militaria, biżuteria i numizmatyka. Lubelscy kolekcjonerzy chwalą regularne grono wystawców i dobrą dostępność parkingową.",
+    "description": "Comiesięczna giełda staroci z widokiem na Zamek Lubelski - jedno z najpiękniej położonych targowisk w Polsce. Szeroka oferta: meble, ceramika, militaria, biżuteria i numizmatyka. Lubelscy kolekcjonerzy chwalą regularne grono wystawców i dobrą dostępność parkingową.",
     "reviews": [],
     "mentions": []
   },
@@ -427,12 +535,17 @@
     "recurring": "sezonowo",
     "recurringDesc": "kilka terminów rocznie wiosna–jesień, godz. 8:00–17:00",
     "hours": "8:00–17:00",
-    "categories": ["antyki", "ceramika", "bizuteria", "obrazy"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "bizuteria",
+      "obrazy"
+    ],
     "organizer": "Białostockie Stowarzyszenie Kolekcjonerów",
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Okresowe targi staroci na reprezentacyjnym Placu Piłsudskiego przed Teatrem Dramatycznym w Białymstoku. Warto śledzić terminy — odbywają się kilka razy w roku i gromadzą wystawców z całego Podlasia i regionów przyległych.",
+    "description": "Okresowe targi staroci na reprezentacyjnym Placu Piłsudskiego przed Teatrem Dramatycznym w Białymstoku. Warto śledzić terminy - odbywają się kilka razy w roku i gromadzą wystawców z całego Podlasia i regionów przyległych.",
     "reviews": [],
     "mentions": []
   },
@@ -450,12 +563,17 @@
     "recurring": "sezonowo",
     "recurringDesc": "wiosna–jesień, wybrane niedziele",
     "hours": null,
-    "categories": ["antyki", "ceramika", "ksiazki", "zabawki"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "ksiazki",
+      "zabawki"
+    ],
     "organizer": "Dworek w Kiermusach",
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Kiermusy to wieś nieopodal Tykocina nad Narwią, gdzie w zabytkowym dworku organizowane są sezonowe jarmarki i targi staroci. Imprezy nawiązują do tradycji kiermusów — dawnych odpustów parafialnych głęboko zakorzenionych w kulturze wschodniej Polski. W ofercie znajdziesz wyroby ceramiczne, stare druki, pamiątki po ziemiaństwie Podlasia oraz rękodzieło regionalne.",
+    "description": "Kiermusy to wieś nieopodal Tykocina nad Narwią, gdzie w zabytkowym dworku organizowane są sezonowe jarmarki i targi staroci. Imprezy nawiązują do tradycji kiermusów - dawnych odpustów parafialnych głęboko zakorzenionych w kulturze wschodniej Polski. W ofercie znajdziesz wyroby ceramiczne, stare druki, pamiątki po ziemiaństwie Podlasia oraz rękodzieło regionalne.",
     "reviews": [],
     "mentions": []
   },
@@ -473,12 +591,19 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwsza niedziela miesiąca, godz. 7:00–12:00",
     "hours": "7:00–12:00",
-    "categories": ["antyki", "numizmatyka", "ceramika", "bizuteria", "meble", "militaria"],
+    "categories": [
+      "antyki",
+      "numizmatyka",
+      "ceramika",
+      "bizuteria",
+      "meble",
+      "militaria"
+    ],
     "organizer": "AGROHURT S.A.",
     "url": "https://agrohurtsa.pl",
     "facebook": null,
     "instagram": null,
-    "description": "Comiesięczne targi staroci na terenie AGROHURT w Rzeszowie — jedna z ważniejszych imprez kolekcjonerskich w Polsce południowo-wschodniej. Dobrze znane w środowisku numizmatyków i militarystów. Wstęp bezpłatny.",
+    "description": "Comiesięczne targi staroci na terenie AGROHURT w Rzeszowie - jedna z ważniejszych imprez kolekcjonerskich w Polsce południowo-wschodniej. Dobrze znane w środowisku numizmatyków i militarystów. Wstęp bezpłatny.",
     "reviews": [],
     "mentions": []
   },
@@ -496,12 +621,18 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia niedziela miesiąca, godz. 7:00–13:00",
     "hours": "7:00–13:00",
-    "categories": ["antyki", "numizmatyka", "ceramika", "meble", "militaria"],
+    "categories": [
+      "antyki",
+      "numizmatyka",
+      "ceramika",
+      "meble",
+      "militaria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Regularna giełda staroci przy Pierwszym Liceum Ogólnokształcącym w Przemyślu. Czynna przez cały rok, ze stałą grupą wystawców z pogranicza polsko-ukraińskiego — stąd zdarzają się tu przedmioty trudno dostępne gdzie indziej: militaria, ceramika Karpat, stare dokumenty.",
+    "description": "Regularna giełda staroci przy Pierwszym Liceum Ogólnokształcącym w Przemyślu. Czynna przez cały rok, ze stałą grupą wystawców z pogranicza polsko-ukraińskiego - stąd zdarzają się tu przedmioty trudno dostępne gdzie indziej: militaria, ceramika Karpat, stare dokumenty.",
     "reviews": [],
     "mentions": []
   },
@@ -519,12 +650,16 @@
     "recurring": "sezonowo",
     "recurringDesc": "trzecia niedziela miesiąca maj–październik",
     "hours": null,
-    "categories": ["antyki", "ceramika", "numizmatyka"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "numizmatyka"
+    ],
     "organizer": "Muzeum Budownictwa Ludowego",
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Sezonowa giełda staroci w otoczeniu sanockie skansenu — Muzeum Budownictwa Ludowego, jednego z największych w Polsce. Wyjątkowa sceneria skłania do zakupów z głową: obok antyków często trafi się tu rękodzieło i przedmioty związane z kulturą Podkarpacia.",
+    "description": "Sezonowa giełda staroci w otoczeniu sanockie skansenu - Muzeum Budownictwa Ludowego, jednego z największych w Polsce. Wyjątkowa sceneria skłania do zakupów z głową: obok antyków często trafi się tu rękodzieło i przedmioty związane z kulturą Podkarpacia.",
     "reviews": [],
     "mentions": []
   },
@@ -542,12 +677,17 @@
     "recurring": "sezonowo",
     "recurringDesc": "trzecia sobota miesiąca kwiecień–październik",
     "hours": null,
-    "categories": ["antyki", "ceramika", "bizuteria", "obrazy"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "bizuteria",
+      "obrazy"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Targi staroci na zabytkowym Rynku w Jarosławiu — mieście o bogatych tradycjach handlowych sięgających jarmarków renesansowych. Sezonowe, od wiosny do jesieni. Warto połączyć z wizytą w kamienicach rynkowych i muzeum.",
+    "description": "Targi staroci na zabytkowym Rynku w Jarosławiu - mieście o bogatych tradycjach handlowych sięgających jarmarków renesansowych. Sezonowe, od wiosny do jesieni. Warto połączyć z wizytą w kamienicach rynkowych i muzeum.",
     "reviews": [],
     "mentions": []
   },
@@ -565,12 +705,20 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia niedziela miesiąca marzec–listopad, godz. 6:00–14:00",
     "hours": "6:00–14:00",
-    "categories": ["antyki", "numizmatyka", "ceramika", "bizuteria", "winyle", "militaria", "ksiazki"],
+    "categories": [
+      "antyki",
+      "numizmatyka",
+      "ceramika",
+      "bizuteria",
+      "winyle",
+      "militaria",
+      "ksiazki"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Targi staroci w historycznej dzielnicy Rozwadów (dawne miasto włączone do Stalowej Woli). Bogaty profil — od numizmatyki po winyle i militaria. Jedna z ważniejszych imprez kolekcjonerskich w województwie podkarpackim.",
+    "description": "Targi staroci w historycznej dzielnicy Rozwadów (dawne miasto włączone do Stalowej Woli). Bogaty profil - od numizmatyki po winyle i militaria. Jedna z ważniejszych imprez kolekcjonerskich w województwie podkarpackim.",
     "reviews": [],
     "mentions": []
   },
@@ -588,18 +736,24 @@
     "recurring": "miesiecznie",
     "recurringDesc": "druga sobota miesiąca, godz. 7:00–13:00",
     "hours": "7:00–13:00",
-    "categories": ["ceramika", "obrazy", "meble", "bizuteria", "numizmatyka"],
+    "categories": [
+      "ceramika",
+      "obrazy",
+      "meble",
+      "bizuteria",
+      "numizmatyka"
+    ],
     "organizer": "Wojewódzki Dom Kultury w Kielcach",
     "url": "https://www.wdkkielce.pl",
     "facebook": null,
     "instagram": null,
-    "description": "Jedna z najdłużej działających giełd kolekcjonerskich w Polsce — czynna od 1976 roku. Organizowana przez Wojewódzki Dom Kultury w Kielcach, skupia wystawców specjalizujących się w ceramice, kryształach, numizmatyce i zabytkowych meblach. Stałe grono kolekcjonerów, profesjonalna organizacja.",
+    "description": "Jedna z najdłużej działających giełd kolekcjonerskich w Polsce - czynna od 1976 roku. Organizowana przez Wojewódzki Dom Kultury w Kielcach, skupia wystawców specjalizujących się w ceramice, kryształach, numizmatyce i zabytkowych meblach. Stałe grono kolekcjonerów, profesjonalna organizacja.",
     "reviews": [],
     "mentions": []
   },
   {
     "slug": "flumark-pchli-targ-olsztyn",
-    "name": "Flumark — Pchli Targ Olsztyn",
+    "name": "Flumark - Pchli Targ Olsztyn",
     "city": "Olsztyn",
     "citySlug": "olsztyn",
     "voivodeship": "warmińsko-mazurskie",
@@ -611,12 +765,16 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia niedziela miesiąca, godz. 6:00–15:00",
     "hours": "6:00–15:00",
-    "categories": ["antyki", "meble", "ceramika"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Comiesięczne targi staroci w olsztyńskiej dzielnicy Zatorze. Regularny targ z szeroką ofertą — meble, ceramika, odzież i antyki. Dobrze znany mieszkańcom Olsztyna i okolicznych powiatów.",
+    "description": "Comiesięczne targi staroci w olsztyńskiej dzielnicy Zatorze. Regularny targ z szeroką ofertą - meble, ceramika, odzież i antyki. Dobrze znany mieszkańcom Olsztyna i okolicznych powiatów.",
     "reviews": [],
     "mentions": []
   },
@@ -634,12 +792,17 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia niedziela miesiąca, godz. 9:00–14:00",
     "hours": "9:00–14:00",
-    "categories": ["antyki", "ceramika", "numizmatyka", "bizuteria"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "numizmatyka",
+      "bizuteria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Regularna giełda staroci na nabrzeżu przy elbląskim Starym Rynku. Miasto z bogatą historią hanzeatycką daje targom oryginalny charakter — trafiają się tu przedmioty związane z Prusami Wschodnimi, ceramika z dawnych fabryk i numizmatyka region.",
+    "description": "Regularna giełda staroci na nabrzeżu przy elbląskim Starym Rynku. Miasto z bogatą historią hanzeatycką daje targom oryginalny charakter - trafiają się tu przedmioty związane z Prusami Wschodnimi, ceramika z dawnych fabryk i numizmatyka region.",
     "reviews": [],
     "mentions": []
   },
@@ -657,7 +820,12 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwsza niedziela miesiąca (rok szkolny), godz. 8:00–12:00",
     "hours": "8:00–12:00",
-    "categories": ["numizmatyka", "militaria", "ceramika", "bizuteria"],
+    "categories": [
+      "numizmatyka",
+      "militaria",
+      "ceramika",
+      "bizuteria"
+    ],
     "organizer": "Młodzieżowy Dom Kultury nr 2",
     "url": null,
     "facebook": null,
@@ -680,12 +848,19 @@
     "recurring": "tygodniowo",
     "recurringDesc": "niehandlowe niedziele, od wczesnych godzin",
     "hours": null,
-    "categories": ["meble", "antyki", "ceramika", "winyle", "ksiazki", "zabawki"],
+    "categories": [
+      "meble",
+      "antyki",
+      "ceramika",
+      "winyle",
+      "ksiazki",
+      "zabawki"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Pchli targ na parkingu przy Centrum Handlowym Kometa w Toruniu. Czynny w niedziele niehandlowe — szeroki asortyment od mebli vintage po płyty winylowe i stare zabawki. Popularny wśród torunian alternatywny weekend.",
+    "description": "Pchli targ na parkingu przy Centrum Handlowym Kometa w Toruniu. Czynny w niedziele niehandlowe - szeroki asortyment od mebli vintage po płyty winylowe i stare zabawki. Popularny wśród torunian alternatywny weekend.",
     "reviews": [],
     "mentions": []
   },
@@ -703,7 +878,11 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia sobota miesiąca",
     "hours": null,
-    "categories": ["numizmatyka", "militaria", "ceramika"],
+    "categories": [
+      "numizmatyka",
+      "militaria",
+      "ceramika"
+    ],
     "organizer": "Stowarzyszenie Kolekcjonerów Pomorze",
     "url": null,
     "facebook": null,
@@ -726,7 +905,12 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwszy weekend miesiąca, godz. 10:00–18:00",
     "hours": "10:00–18:00",
-    "categories": ["numizmatyka", "bizuteria", "ceramika", "militaria"],
+    "categories": [
+      "numizmatyka",
+      "bizuteria",
+      "ceramika",
+      "militaria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
@@ -749,12 +933,17 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwsza i trzecia sobota miesiąca, godz. 9:30–14:30",
     "hours": "9:30–14:30",
-    "categories": ["antyki", "numizmatyka", "ceramika", "bizuteria"],
+    "categories": [
+      "antyki",
+      "numizmatyka",
+      "ceramika",
+      "bizuteria"
+    ],
     "organizer": "Regionalne Centrum Kultury",
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Giełda staroci przy Regionalnym Centrum Kultury w Kołobrzegu — nadmorskie miasto ze starą tradycją handlową daje targom wyjątkowy klimat. Dwa terminy miesięcznie, stałe grono wystawców, wyraźny profil numizmatyczno-kolekcjonerski.",
+    "description": "Giełda staroci przy Regionalnym Centrum Kultury w Kołobrzegu - nadmorskie miasto ze starą tradycją handlową daje targom wyjątkowy klimat. Dwa terminy miesięcznie, stałe grono wystawców, wyraźny profil numizmatyczno-kolekcjonerski.",
     "reviews": [],
     "mentions": []
   },
@@ -772,12 +961,18 @@
     "recurring": "miesiecznie",
     "recurringDesc": "druga niedziela miesiąca, godz. 6:00–14:00",
     "hours": "6:00–14:00",
-    "categories": ["antyki", "meble", "bizuteria", "ceramika", "numizmatyka"],
+    "categories": [
+      "antyki",
+      "meble",
+      "bizuteria",
+      "ceramika",
+      "numizmatyka"
+    ],
     "organizer": "TML Pro Legnica",
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Comiesięczne jarmarki staroci na legnickim Rynku organizowane przez Towarzystwo Miłośników Legnicy Pro Legnica. Stara tradycja, stałe grono wystawców — meble, starodruki, ceramika i biżuteria. Dobre miejsce dla kolekcjonerów poszukujących przedmiotów związanych z Dolnym Śląskiem.",
+    "description": "Comiesięczne jarmarki staroci na legnickim Rynku organizowane przez Towarzystwo Miłośników Legnicy Pro Legnica. Stara tradycja, stałe grono wystawców - meble, starodruki, ceramika i biżuteria. Dobre miejsce dla kolekcjonerów poszukujących przedmiotów związanych z Dolnym Śląskiem.",
     "reviews": [],
     "mentions": []
   },
@@ -795,12 +990,17 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwsza niedziela miesiąca, godz. 6:00–14:00",
     "hours": "6:00–14:00",
-    "categories": ["antyki", "ceramika", "numizmatyka", "obrazy"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "numizmatyka",
+      "obrazy"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Giełda staroci na rynku Świdnicy — miasta z bogatą historią i zabytkowym centrum. Regularny targ z dobrym wyborem ceramiki i numizmatyki. Świdnica jest dobrym punktem wypadowym na dolnośląskie targi — w weekend można połączyć kilka.",
+    "description": "Giełda staroci na rynku Świdnicy - miasta z bogatą historią i zabytkowym centrum. Regularny targ z dobrym wyborem ceramiki i numizmatyki. Świdnica jest dobrym punktem wypadowym na dolnośląskie targi - w weekend można połączyć kilka.",
     "reviews": [],
     "mentions": []
   },
@@ -818,7 +1018,16 @@
     "recurring": "roczny",
     "recurringDesc": "ostatni weekend września, piątek 16:00–20:00, sobota–niedziela 6:00–18:00",
     "hours": null,
-    "categories": ["antyki", "ceramika", "bizuteria", "obrazy", "meble", "numizmatyka", "militaria", "winyle"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "bizuteria",
+      "obrazy",
+      "meble",
+      "numizmatyka",
+      "militaria",
+      "winyle"
+    ],
     "organizer": null,
     "url": "https://www.jarmarkstaroci.com.pl",
     "facebook": null,
@@ -841,12 +1050,16 @@
     "recurring": "miesiecznie",
     "recurringDesc": "druga sobota miesiąca",
     "hours": null,
-    "categories": ["antyki", "ceramika", "numizmatyka"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "numizmatyka"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Giełda staroci na wałbrzyskim Rynku — miasto z tradycjami górniczymi i ceramicznymi daje targom szczególny charakter. Tu trafiają się osobliwości z dawnych fabryk Sudetów i kopalnianych pamiątek. Miesięczny termin, bez wstępu.",
+    "description": "Giełda staroci na wałbrzyskim Rynku - miasto z tradycjami górniczymi i ceramicznymi daje targom szczególny charakter. Tu trafiają się osobliwości z dawnych fabryk Sudetów i kopalnianych pamiątek. Miesięczny termin, bez wstępu.",
     "reviews": [],
     "mentions": []
   },
@@ -864,12 +1077,19 @@
     "recurring": "tygodniowo",
     "recurringDesc": "każda niedziela, godz. 6:00–13:00",
     "hours": "6:00–13:00",
-    "categories": ["antyki", "ceramika", "numizmatyka", "bizuteria", "militaria", "meble"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "numizmatyka",
+      "bizuteria",
+      "militaria",
+      "meble"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Tygodniowa giełda staroci w Opolu — jeden z niewielu targów na Opolszczyźnie czynnych co niedzielę przez cały rok. Szeroka oferta: antyki, ceramika, militaria i numizmatyka. Wstęp bezpłatny.",
+    "description": "Tygodniowa giełda staroci w Opolu - jeden z niewielu targów na Opolszczyźnie czynnych co niedzielę przez cały rok. Szeroka oferta: antyki, ceramika, militaria i numizmatyka. Wstęp bezpłatny.",
     "reviews": [],
     "mentions": []
   },
@@ -887,12 +1107,16 @@
     "recurring": "sezonowo",
     "recurringDesc": "soboty marzec–październik, godz. 8:00–12:00",
     "hours": "8:00–12:00",
-    "categories": ["antyki", "ceramika", "bizuteria"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "bizuteria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Sezonowe sobotnie targi staroci w Nysie przy stadionie. Kameralne, lokalne — dobre miejsce dla poszukiwaczy ceramiki i biżuterii z regionu opolsko-sudeckiego. Czynne od marca do października.",
+    "description": "Sezonowe sobotnie targi staroci w Nysie przy stadionie. Kameralne, lokalne - dobre miejsce dla poszukiwaczy ceramiki i biżuterii z regionu opolsko-sudeckiego. Czynne od marca do października.",
     "reviews": [],
     "mentions": []
   },
@@ -910,12 +1134,17 @@
     "recurring": "tygodniowo",
     "recurringDesc": "każda niedziela, godz. 5:00–14:00",
     "hours": "5:00–14:00",
-    "categories": ["antyki", "ceramika", "bizuteria", "meble"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "bizuteria",
+      "meble"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Tygodniowa giełda staroci w centrum Zielonej Góry — czynna każdą niedzielę od 5:00. Szerokie grono wystawców ze Śląska Lubuskiego i pogranicza niemieckiego. Tu trafiają się rzeczy z dawnych kolekcji niemieckich osadników — ceramika, szkło, meble.",
+    "description": "Tygodniowa giełda staroci w centrum Zielonej Góry - czynna każdą niedzielę od 5:00. Szerokie grono wystawców ze Śląska Lubuskiego i pogranicza niemieckiego. Tu trafiają się rzeczy z dawnych kolekcji niemieckich osadników - ceramika, szkło, meble.",
     "reviews": [],
     "mentions": []
   },
@@ -933,12 +1162,18 @@
     "recurring": "miesiecznie",
     "recurringDesc": "trzecia niedziela miesiąca, godz. 6:00–12:00",
     "hours": "6:00–12:00",
-    "categories": ["antyki", "ceramika", "numizmatyka", "bizuteria", "militaria"],
+    "categories": [
+      "antyki",
+      "ceramika",
+      "numizmatyka",
+      "bizuteria",
+      "militaria"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Comiesięczny jarmark staroci w Fabryce Pełnej Życia — industrialnym centrum kulturalnym w Dąbrowie Górniczej. Klimatyczne wnętrze dawnej fabryki z szeroką ofertą staroci, ceramiki i militariów. Popularny wśród mieszkańców Zagłębia.",
+    "description": "Comiesięczny jarmark staroci w Fabryce Pełnej Życia - industrialnym centrum kulturalnym w Dąbrowie Górniczej. Klimatyczne wnętrze dawnej fabryki z szeroką ofertą staroci, ceramiki i militariów. Popularny wśród mieszkańców Zagłębia.",
     "reviews": [],
     "mentions": []
   },
@@ -956,12 +1191,16 @@
     "recurring": "miesiecznie",
     "recurringDesc": "druga i ostatnia niedziela miesiąca, godz. 5:00–13:00",
     "hours": "5:00–13:00",
-    "categories": ["antyki", "meble", "ceramika"],
+    "categories": [
+      "antyki",
+      "meble",
+      "ceramika"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Giełda staroci w centrum Gliwic, czynna dwa razy w miesiącu. Wczesne godziny (od 5:00) sygnalizują charakter targu — to miejsce dla tych, którzy szukają, nie spacerują. Meble i ceramika w przyzwoitym stosunku ceny do jakości.",
+    "description": "Giełda staroci w centrum Gliwic, czynna dwa razy w miesiącu. Wczesne godziny (od 5:00) sygnalizują charakter targu - to miejsce dla tych, którzy szukają, nie spacerują. Meble i ceramika w przyzwoitym stosunku ceny do jakości.",
     "reviews": [],
     "mentions": []
   },
@@ -979,12 +1218,19 @@
     "recurring": "sezonowo",
     "recurringDesc": "sezon letni, głównie maj i sierpień",
     "hours": "9:00–21:00",
-    "categories": ["antyki", "numizmatyka", "bizuteria", "ceramika", "militaria", "obrazy"],
+    "categories": [
+      "antyki",
+      "numizmatyka",
+      "bizuteria",
+      "ceramika",
+      "militaria",
+      "obrazy"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Sezonowe targi kolekcjonerskie na zakopiańskim Placu Niepodległości — z dłuższymi godzinami otwarcia (do 21:00) dopasowanymi do turystycznego rytmu Zakopanego. Szczyt sezonu to sierpień. Dobry wybór biżuterii, numizmatyki i regionalnych osobliwości.",
+    "description": "Sezonowe targi kolekcjonerskie na zakopiańskim Placu Niepodległości - z dłuższymi godzinami otwarcia (do 21:00) dopasowanymi do turystycznego rytmu Zakopanego. Szczyt sezonu to sierpień. Dobry wybór biżuterii, numizmatyki i regionalnych osobliwości.",
     "reviews": [],
     "mentions": []
   },
@@ -1002,12 +1248,16 @@
     "recurring": "miesiecznie",
     "recurringDesc": "pierwsza niedziela miesiąca, godz. 8:00–12:00",
     "hours": "8:00–12:00",
-    "categories": ["numizmatyka", "militaria", "ceramika"],
+    "categories": [
+      "numizmatyka",
+      "militaria",
+      "ceramika"
+    ],
     "organizer": null,
     "url": null,
     "facebook": null,
     "instagram": null,
-    "description": "Giełda kolekcjonerska w renesansowym Zamościu — mieście wpisanym na Listę Światowego Dziedzictwa UNESCO. Kameralna, specjalistyczna: numizmatyka, militaria i pocztówki z regionu. Dobry punkt wypadowy przy zwiedzaniu Starego Miasta.",
+    "description": "Giełda kolekcjonerska w renesansowym Zamościu - mieście wpisanym na Listę Światowego Dziedzictwa UNESCO. Kameralna, specjalistyczna: numizmatyka, militaria i pocztówki z regionu. Dobry punkt wypadowy przy zwiedzaniu Starego Miasta.",
     "reviews": [],
     "mentions": []
   }

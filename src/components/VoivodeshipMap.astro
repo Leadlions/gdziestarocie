@@ -1,0 +1,277 @@
+---
+interface Props {
+  fairCounts: Record<string, number>;
+}
+const { fairCounts } = Astro.props;
+
+// Voivodeship data: slug, display name, SVG path, label position
+const VOIVODESHIPS = [
+  {
+    slug: 'zachodniopomorskie',
+    name: 'Zachodniopomorskie',
+    lx: 72, ly: 70,
+    path: 'M 2 0 L 148 0 L 162 18 L 158 52 L 170 80 L 162 112 L 158 148 L 130 158 L 100 200 L 68 212 L 50 240 L 22 230 L 2 200 L 0 148 L 10 100 Z',
+  },
+  {
+    slug: 'pomorskie',
+    name: 'Pomorskie',
+    lx: 232, ly: 62,
+    path: 'M 148 0 L 310 0 L 330 20 L 328 48 L 308 68 L 290 88 L 268 108 L 238 118 L 208 128 L 180 120 L 158 100 L 158 52 L 162 18 Z',
+  },
+  {
+    slug: 'warminsko-mazurskie',
+    name: 'Warmińsko-Mazurskie',
+    lx: 390, ly: 75,
+    path: 'M 310 0 L 520 0 L 530 30 L 528 70 L 510 100 L 490 120 L 460 132 L 430 140 L 400 148 L 370 140 L 340 130 L 318 110 L 308 88 L 308 68 L 328 48 L 330 20 Z',
+  },
+  {
+    slug: 'podlaskie',
+    name: 'Podlaskie',
+    lx: 468, ly: 168,
+    path: 'M 520 0 L 648 0 L 648 100 L 648 200 L 610 218 L 578 228 L 548 220 L 528 200 L 510 178 L 490 158 L 470 148 L 460 132 L 490 120 L 510 100 L 528 70 L 530 30 Z',
+  },
+  {
+    slug: 'lubuskie',
+    name: 'Lubuskie',
+    lx: 68, ly: 288,
+    path: 'M 2 200 L 22 230 L 50 240 L 68 212 L 100 200 L 130 158 L 158 148 L 162 200 L 158 248 L 140 290 L 120 318 L 88 330 L 60 318 L 30 308 L 10 280 L 2 250 Z',
+  },
+  {
+    slug: 'wielkopolskie',
+    name: 'Wielkopolskie',
+    lx: 198, ly: 248,
+    path: 'M 158 148 L 208 128 L 238 118 L 268 158 L 278 200 L 278 240 L 268 278 L 248 308 L 220 328 L 190 338 L 160 330 L 140 310 L 140 290 L 158 248 L 162 200 Z',
+  },
+  {
+    slug: 'kujawsko-pomorskie',
+    name: 'Kujawsko-Pomorskie',
+    lx: 278, ly: 148,
+    path: 'M 208 128 L 238 118 L 268 108 L 290 88 L 318 110 L 340 130 L 360 148 L 358 178 L 340 200 L 318 218 L 298 228 L 278 230 L 258 220 L 238 208 L 228 188 L 228 168 L 238 148 L 238 128 Z',
+  },
+  {
+    slug: 'mazowieckie',
+    name: 'Mazowieckie',
+    lx: 400, ly: 228,
+    path: 'M 360 148 L 400 148 L 430 140 L 460 132 L 470 148 L 490 158 L 510 178 L 528 200 L 530 230 L 520 258 L 500 278 L 480 298 L 460 308 L 438 318 L 418 310 L 398 298 L 378 280 L 358 260 L 348 238 L 348 218 L 358 198 L 358 178 L 370 162 Z',
+  },
+  {
+    slug: 'lodzkie',
+    name: 'Łódzkie',
+    lx: 268, ly: 318,
+    path: 'M 248 308 L 268 278 L 278 240 L 298 228 L 318 218 L 340 238 L 348 258 L 348 278 L 338 308 L 318 328 L 298 340 L 278 348 L 258 340 L 248 320 Z',
+  },
+  {
+    slug: 'dolnoslaskie',
+    name: 'Dolnośląskie',
+    lx: 128, ly: 398,
+    path: 'M 88 330 L 120 318 L 140 318 L 160 330 L 190 338 L 210 360 L 208 390 L 200 420 L 180 448 L 158 460 L 130 458 L 100 448 L 78 428 L 60 408 L 58 380 L 68 360 Z',
+  },
+  {
+    slug: 'opolskie',
+    name: 'Opolskie',
+    lx: 238, ly: 398,
+    path: 'M 210 360 L 248 348 L 270 358 L 280 380 L 278 410 L 260 430 L 238 440 L 218 432 L 200 418 L 200 396 Z',
+  },
+  {
+    slug: 'slaskie',
+    name: 'Śląskie',
+    lx: 318, ly: 418,
+    path: 'M 280 380 L 318 358 L 348 358 L 368 370 L 378 390 L 378 418 L 368 440 L 348 458 L 320 468 L 298 460 L 278 450 L 260 432 L 278 410 Z',
+  },
+  {
+    slug: 'swietokrzyskie',
+    name: 'Świętokrzyskie',
+    lx: 368, ly: 348,
+    path: 'M 348 318 L 378 308 L 400 318 L 410 338 L 408 360 L 390 372 L 368 378 L 348 368 L 338 348 L 338 328 Z',
+  },
+  {
+    slug: 'malopolskie',
+    name: 'Małopolskie',
+    lx: 388, ly: 438,
+    path: 'M 368 378 L 390 372 L 408 360 L 430 368 L 448 380 L 460 400 L 458 428 L 440 450 L 418 462 L 390 468 L 368 458 L 348 448 L 348 428 L 360 408 Z',
+  },
+  {
+    slug: 'podkarpackie',
+    name: 'Podkarpackie',
+    lx: 488, ly: 428,
+    path: 'M 448 380 L 480 368 L 510 360 L 540 362 L 568 370 L 590 388 L 600 410 L 590 438 L 570 458 L 548 472 L 520 478 L 490 472 L 462 458 L 448 438 L 446 418 Z',
+  },
+  {
+    slug: 'lubelskie',
+    name: 'Lubelskie',
+    lx: 468, ly: 318,
+    path: 'M 438 318 L 460 308 L 480 298 L 500 278 L 520 258 L 548 268 L 570 280 L 590 300 L 600 330 L 590 360 L 570 378 L 548 388 L 520 390 L 500 380 L 480 368 L 460 352 L 448 338 L 448 318 Z',
+  },
+];
+
+function getColor(count: number): string {
+  if (count === 0) return '#f5f0eb';
+  if (count === 1) return '#fde68a';
+  if (count === 2) return '#fbbf24';
+  if (count <= 4) return '#f59e0b';
+  return '#d97706';
+}
+
+function getTextColor(count: number): string {
+  return count >= 2 ? '#78350f' : '#92400e';
+}
+---
+
+<div class="relative w-full max-w-2xl mx-auto select-none" id="woj-map-wrap">
+  <!-- Tooltip -->
+  <div
+    id="woj-tooltip"
+    class="pointer-events-none absolute z-10 hidden rounded-lg bg-stone-900 px-3 py-2 text-sm text-white shadow-xl"
+    style="transform: translate(-50%, -110%)"
+  >
+    <span id="woj-tooltip-name" class="font-semibold"></span>
+    <span id="woj-tooltip-count" class="ml-2 text-amber-300"></span>
+    <div class="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-stone-900"></div>
+  </div>
+
+  <svg
+    viewBox="0 0 650 490"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full"
+    id="woj-map"
+  >
+    {VOIVODESHIPS.map((woj) => {
+      const count = fairCounts[woj.slug] ?? 0;
+      const fill = getColor(count);
+      const textCol = getTextColor(count);
+      return (
+        <g
+          class="woj-region cursor-pointer"
+          data-slug={woj.slug}
+          data-name={woj.name}
+          data-count={count}
+        >
+          <path
+            d={woj.path}
+            fill={fill}
+            stroke="#d6c9b8"
+            stroke-width="2"
+            stroke-linejoin="round"
+            class="transition-all duration-150"
+          />
+          <text
+            x={woj.lx}
+            y={woj.ly}
+            text-anchor="middle"
+            font-size="10"
+            font-family="system-ui, sans-serif"
+            font-weight="600"
+            fill={textCol}
+            class="pointer-events-none"
+          >
+            {count}
+          </text>
+        </g>
+      );
+    })}
+  </svg>
+
+  <!-- Legenda -->
+  <div class="mt-3 flex items-center justify-center gap-4 text-xs text-stone-500">
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block h-3 w-5 rounded" style="background:#f5f0eb;border:1px solid #d6c9b8"></span>brak
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block h-3 w-5 rounded" style="background:#fde68a"></span>1
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block h-3 w-5 rounded" style="background:#fbbf24"></span>2
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block h-3 w-5 rounded" style="background:#f59e0b"></span>3-4
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block h-3 w-5 rounded" style="background:#d97706"></span>5+
+    </span>
+  </div>
+</div>
+
+<script>
+  const wrap = document.getElementById('woj-map-wrap')!;
+  const tooltip = document.getElementById('woj-tooltip')!;
+  const tooltipName = document.getElementById('woj-tooltip-name')!;
+  const tooltipCount = document.getElementById('woj-tooltip-count')!;
+  const regions = document.querySelectorAll<SVGGElement>('.woj-region');
+  const cityInput = document.getElementById('city-search') as HTMLInputElement;
+
+  let activeWoj = '';
+
+  regions.forEach((g) => {
+    const path = g.querySelector('path')!;
+    const origFill = path.getAttribute('fill')!;
+
+    g.addEventListener('mouseenter', (e) => {
+      const name = g.dataset.name ?? '';
+      const count = g.dataset.count ?? '0';
+      tooltipName.textContent = name;
+      tooltipCount.textContent = `${count} ${Number(count) === 1 ? 'targ' : Number(count) < 5 ? 'targi' : 'targów'}`;
+
+      const rect = wrap.getBoundingClientRect();
+      const gRect = g.getBoundingClientRect();
+      const cx = gRect.left + gRect.width / 2 - rect.left;
+      const cy = gRect.top - rect.top;
+
+      tooltip.style.left = `${cx}px`;
+      tooltip.style.top = `${cy}px`;
+      tooltip.classList.remove('hidden');
+
+      if (g.dataset.slug !== activeWoj) {
+        path.setAttribute('fill', '#92400e');
+        path.style.opacity = '0.85';
+      }
+    });
+
+    g.addEventListener('mouseleave', () => {
+      tooltip.classList.add('hidden');
+      if (g.dataset.slug !== activeWoj) {
+        path.setAttribute('fill', origFill);
+        path.style.opacity = '1';
+      }
+    });
+
+    g.addEventListener('click', () => {
+      const slug = g.dataset.slug ?? '';
+
+      if (activeWoj === slug) {
+        // deselect
+        activeWoj = '';
+        regions.forEach((rg) => {
+          const p = rg.querySelector('path')!;
+          const orig = p.getAttribute('fill')!;
+          p.style.opacity = '1';
+        });
+        if (cityInput) {
+          cityInput.value = '';
+          cityInput.dispatchEvent(new Event('input'));
+        }
+        return;
+      }
+
+      activeWoj = slug;
+
+      // highlight selected, dim others
+      regions.forEach((rg) => {
+        const p = rg.querySelector('path')!;
+        if (rg.dataset.slug === slug) {
+          p.setAttribute('fill', '#b45309');
+          p.style.opacity = '1';
+        } else {
+          p.style.opacity = '0.35';
+        }
+      });
+
+      // filter fair list by typing voivodeship slug into search
+      if (cityInput) {
+        cityInput.value = slug;
+        cityInput.dispatchEvent(new Event('input'));
+        // scroll to list
+        document.getElementById('fair-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>

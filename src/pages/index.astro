@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import FairCard from '../components/FairCard.astro';
 import BlogPostCard from '../components/BlogPostCard.astro';
+import VoivodeshipMap from '../components/VoivodeshipMap.astro';
 import allFairs from '../data/fairs.json';
 
 const blogPosts = (await getCollection('blog'))
@@ -12,6 +13,12 @@ const blogPosts = (await getCollection('blog'))
 const sortedFairs = [...allFairs].sort(
   (a, b) => new Date(a.nextDate).getTime() - new Date(b.nextDate).getTime()
 );
+
+// Zlicz targi per województwo dla mapy
+const fairCounts: Record<string, number> = {};
+for (const fair of allFairs) {
+  fairCounts[fair.voivodeshipSlug] = (fairCounts[fair.voivodeshipSlug] ?? 0) + 1;
+}
 
 // Precompute a searchable date string per fair (used by client-side search)
 const PL_MONTHS = ['styczeń','luty','marzec','kwiecień','maj','czerwiec','lipiec','sierpień','wrzesień','październik','listopad','grudzień'];
@@ -100,6 +107,17 @@ const jsonLd = {
           />
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- MAPA WOJEWÓDZTW -->
+  <section class="border-b border-stone-100 bg-stone-50 px-4 py-8 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      <div class="mb-5 text-center">
+        <h2 class="text-lg font-semibold text-stone-800">Targi według województwa</h2>
+        <p class="mt-1 text-sm text-stone-500">Kliknij województwo, żeby przefiltrować listę</p>
+      </div>
+      <VoivodeshipMap fairCounts={fairCounts} />
     </div>
   </section>
 

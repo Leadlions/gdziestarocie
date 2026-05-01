@@ -1,0 +1,28 @@
+---
+interface Props {
+  author: string;
+  rating: number;
+  text: string;
+  date: string;
+}
+
+const { author, rating, text, date } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString('pl-PL', {
+  month: 'long',
+  year: 'numeric',
+});
+
+const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+---
+
+<div class="rounded-xl border border-stone-200 bg-stone-50 p-5">
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <p class="font-semibold text-stone-800">{author}</p>
+      <p class="text-xs text-stone-400">{formattedDate}</p>
+    </div>
+    <span class="shrink-0 text-lg text-amber-500">{stars}</span>
+  </div>
+  <p class="mt-3 text-sm leading-relaxed text-stone-600">{text}</p>
+</div>

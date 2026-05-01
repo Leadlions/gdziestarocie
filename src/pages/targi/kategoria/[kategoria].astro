@@ -1,0 +1,123 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import FairCard from '../../../components/FairCard.astro';
+import allFairs from '../../../data/fairs.json';
+
+// Must be defined inside getStaticPaths — Astro compiles it to a separate scope
+const CATEGORY_META: Record<string, { label: string; description: string }> = {
+  antyki:      { label: 'Antyki',              description: 'Targi staroci i antykwaryczne z bogatą ofertą antyków — przedmiotów historycznych, kolekcjonerskich i artystycznych.' },
+  meble:       { label: 'Meble vintage',        description: 'Targi z meblami vintage i retro — szafy, kredensy, fotele i stoły z duszą.' },
+  ceramika:    { label: 'Ceramika i porcelana', description: 'Targi z ceramiką, porcelaną i szkłem artystycznym — Ćmielów, Włocławek i inne klasyki.' },
+  bizuteria:   { label: 'Biżuteria i zegarki', description: 'Targi z biżuterią srebrną, złotą i zegarkami — od przedwojennych kamei po zegarki kieszonkowe.' },
+  numizmatyka: { label: 'Monety i banknoty',   description: 'Targi numizmatyczne — monety, banknoty, znaczki pocztowe i inne przedmioty kolekcjonerskie.' },
+  ksiazki:     { label: 'Książki i mapy',       description: 'Targi z antykwarycznymi książkami, starymi mapami i pocztówkami.' },
+  zabawki:     { label: 'Zabawki vintage',      description: 'Targi z zabawkami PRL i vintage — blaszane auta, lalki celuloidowe, gry planszowe.' },
+  militaria:   { label: 'Militaria',            description: 'Targi z militariami — ordery, odznaczenia, mundury, broń biała i pamiątki wojenne.' },
+  obrazy:      { label: 'Obrazy i grafiki',     description: 'Targi z malarstwa i grafiki — obrazy olejne, akwarele, stare fotografie i plakaty.' },
+  winyle:      { label: 'Winyle i audio',       description: 'Targi z płytami winylowymi, sprzętem audio i muzykaliami vintage.' },
+};
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const meta: Record<string, { label: string; description: string }> = {
+    antyki:      { label: 'Antyki',              description: 'Targi staroci i antykwaryczne z bogatą ofertą antyków — przedmiotów historycznych, kolekcjonerskich i artystycznych.' },
+    meble:       { label: 'Meble vintage',        description: 'Targi z meblami vintage i retro — szafy, kredensy, fotele i stoły z duszą.' },
+    ceramika:    { label: 'Ceramika i porcelana', description: 'Targi z ceramiką, porcelaną i szkłem artystycznym — Ćmielów, Włocławek i inne klasyki.' },
+    bizuteria:   { label: 'Biżuteria i zegarki', description: 'Targi z biżuterią srebrną, złotą i zegarkami — od przedwojennych kamei po zegarki kieszonkowe.' },
+    numizmatyka: { label: 'Monety i banknoty',   description: 'Targi numizmatyczne — monety, banknoty, znaczki pocztowe i inne przedmioty kolekcjonerskie.' },
+    ksiazki:     { label: 'Książki i mapy',       description: 'Targi z antykwarycznymi książkami, starymi mapami i pocztówkami.' },
+    zabawki:     { label: 'Zabawki vintage',      description: 'Targi z zabawkami PRL i vintage — blaszane auta, lalki celuloidowe, gry planszowe.' },
+    militaria:   { label: 'Militaria',            description: 'Targi z militariami — ordery, odznaczenia, mundury, broń biała i pamiątki wojenne.' },
+    obrazy:      { label: 'Obrazy i grafiki',     description: 'Targi z malarstwa i grafiki — obrazy olejne, akwarele, stare fotografie i plakaty.' },
+    winyle:      { label: 'Winyle i audio',       description: 'Targi z płytami winylowymi, sprzętem audio i muzykaliami vintage.' },
+  };
+
+  const allCategories = new Set(allFairs.flatMap((f) => f.categories));
+
+  return [...allCategories].map((cat) => ({
+    params: { kategoria: cat },
+    props: {
+      category: cat,
+      meta: meta[cat] ?? { label: cat, description: `Targi staroci z ofertą: ${cat}.` },
+      fairs: allFairs
+        .filter((f) => f.categories.includes(cat))
+        .sort((a, b) => new Date(a.nextDate).getTime() - new Date(b.nextDate).getTime()),
+    },
+  }));
+};
+
+interface Props {
+  category: string;
+  meta: { label: string; description: string };
+  fairs: typeof allFairs;
+}
+
+const { category, meta, fairs } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `Targi staroci – ${meta.label}`,
+  url: `https://gdziestarocie.pl/targi/kategoria/${category}/`,
+  numberOfItems: fairs.length,
+  itemListElement: fairs.map((f, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: f.name,
+    url: `https://gdziestarocie.pl/targi/${f.slug}/`,
+  })),
+};
+---
+
+<Base
+  title={`Targi staroci – ${meta.label} w Polsce | gdziestarocie.pl`}
+  description={`${meta.description} ${fairs.length} ${fairs.length === 1 ? 'targ' : 'targów'} w Polsce.`}
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Targi', url: 'https://gdziestarocie.pl/targi/' },
+    { name: meta.label, url: `https://gdziestarocie.pl/targi/kategoria/${category}/` },
+  ]}
+>
+  <section class="border-b border-stone-100 bg-gradient-to-b from-brand-50 to-white px-4 py-12 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      <a href="/" class="mb-4 inline-flex items-center gap-1 text-sm text-stone-500 hover:text-brand-700">
+        ← Wszystkie targi
+      </a>
+      <h1 class="mt-2 text-3xl font-bold text-stone-900 sm:text-4xl">
+        Targi staroci – {meta.label}
+      </h1>
+      <p class="mt-3 max-w-2xl text-stone-600">{meta.description}</p>
+      <p class="mt-2 text-sm text-stone-400">
+        {fairs.length} {fairs.length === 1 ? 'targ' : fairs.length < 5 ? 'targi' : 'targów'} w bazie.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-4 py-10 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      {fairs.length === 0 ? (
+        <div class="rounded-xl border border-dashed border-stone-300 bg-stone-50 px-6 py-12 text-center">
+          <p class="font-medium text-stone-600">Brak targów w tej kategorii.</p>
+          <p class="mt-2 text-sm text-stone-400">
+            <a href="/" class="text-brand-600 hover:underline">Wróć na stronę główną</a> i przejrzyj wszystkie terminy.
+          </p>
+        </div>
+      ) : (
+        <div class="flex flex-col gap-3">
+          {fairs.map((f) => (
+            <FairCard
+              slug={f.slug}
+              name={f.name}
+              city={f.city}
+              venue={f.venue}
+              nextDate={f.nextDate}
+              recurringDesc={f.recurringDesc}
+              categories={f.categories}
+              reviews={f.reviews}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

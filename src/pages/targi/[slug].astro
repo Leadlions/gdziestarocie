@@ -1,0 +1,367 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import ReviewCard from '../../components/ReviewCard.astro';
+import MentionCard from '../../components/MentionCard.astro';
+import FairCard from '../../components/FairCard.astro';
+import allFairs from '../../data/fairs.json';
+
+export const getStaticPaths: GetStaticPaths = () =>
+  allFairs.map((fair) => ({ params: { slug: fair.slug }, props: { fair } }));
+
+type Fair = (typeof allFairs)[0];
+interface Props { fair: Fair }
+
+const { fair } = Astro.props;
+
+const avgRating =
+  fair.reviews.length > 0
+    ? fair.reviews.reduce((s, r) => s + r.rating, 0) / fair.reviews.length
+    : null;
+
+const reviewLabel =
+  fair.reviews.length === 1
+    ? '1 opinia'
+    : fair.reviews.length < 5
+    ? `${fair.reviews.length} opinie`
+    : `${fair.reviews.length} opinii`;
+
+const CATEGORY_LABELS: Record<string, string> = {
+  antyki: 'Antyki',
+  meble: 'Meble vintage',
+  ceramika: 'Ceramika i porcelana',
+  bizuteria: 'Biżuteria i zegarki',
+  numizmatyka: 'Monety i banknoty',
+  ksiazki: 'Książki i mapy',
+  zabawki: 'Zabawki vintage',
+  militaria: 'Militaria',
+  obrazy: 'Obrazy i grafiki',
+  winyle: 'Winyle i audio',
+};
+
+const formattedDate = new Date(fair.nextDate).toLocaleDateString('pl-PL', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const relatedFairs = allFairs
+  .filter((f) => f.city === fair.city && f.slug !== fair.slug)
+  .slice(0, 3);
+
+const jsonLd: Record<string, unknown>[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: fair.name,
+    startDate: fair.nextDate,
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'Place',
+      name: fair.venue,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: fair.city,
+        addressCountry: 'PL',
+      },
+      ...(fair.lat && fair.lng
+        ? { geo: { '@type': 'GeoCoordinates', latitude: fair.lat, longitude: fair.lng } }
+        : {}),
+    },
+    url: `https://gdziestarocie.pl/targi/${fair.slug}/`,
+    ...(fair.organizer ? { organizer: { '@type': 'Organization', name: fair.organizer } } : {}),
+    ...(avgRating !== null && fair.reviews.length >= 2
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: avgRating.toFixed(1),
+            reviewCount: String(fair.reviews.length),
+            bestRating: '5',
+          },
+          review: fair.reviews.map((r) => ({
+            '@type': 'Review',
+            author: { '@type': 'Person', name: r.author },
+            reviewRating: { '@type': 'Rating', ratingValue: String(r.rating), bestRating: '5' },
+            reviewBody: r.text,
+            datePublished: r.date,
+          })),
+        }
+      : {}),
+  },
+];
+---
+
+<Base
+  title={`${fair.name} – opinie i terminarz | gdziestarocie.pl`}
+  description={`${fair.name} w ${fair.city}. Sprawdź datę (${formattedDate}), opinie uczestników i wzmianki medialne. ${fair.recurringDesc ?? ''}`}
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Targi', url: 'https://gdziestarocie.pl/targi/' },
+    { name: fair.name, url: `https://gdziestarocie.pl/targi/${fair.slug}/` },
+  ]}
+>
+  <!-- HERO -->
+  <section class="border-b border-stone-100 bg-gradient-to-b from-brand-50 to-white px-4 py-12 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      <a href="/" class="mb-4 inline-flex items-center gap-1 text-sm text-stone-500 hover:text-brand-700">
+        ← Wszystkie targi
+      </a>
+
+      <div class="mt-2 flex flex-wrap gap-1.5">
+        {fair.categories.map((cat) => (
+          <a
+            href={`/targi/kategoria/${cat}/`}
+            class="inline-block rounded-full bg-brand-100 px-2.5 py-0.5 text-xs font-medium text-brand-800 hover:bg-brand-200"
+          >
+            {CATEGORY_LABELS[cat] ?? cat}
+          </a>
+        ))}
+      </div>
+
+      <h1 class="mt-3 text-3xl font-bold text-stone-900 sm:text-4xl">{fair.name}</h1>
+      <p class="mt-2 text-stone-600">
+        <a href={`/targi/miasto/${fair.citySlug}/`} class="hover:text-brand-700">{fair.city}</a>
+        &nbsp;&middot;&nbsp;{fair.venue}
+      </p>
+
+      {avgRating !== null && (
+        <p class="mt-3 text-lg font-medium text-amber-500">
+          {'★'.repeat(Math.round(avgRating))}{'☆'.repeat(5 - Math.round(avgRating))}
+          <span class="ml-1 text-base font-normal text-stone-500">
+            {avgRating.toFixed(1)} / 5 ({reviewLabel})
+          </span>
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- TREŚĆ -->
+  <section class="px-4 py-10 sm:px-6">
+    <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 lg:grid-cols-3">
+
+      <!-- GŁÓWNA KOLUMNA -->
+      <div class="lg:col-span-2 space-y-10">
+
+        <!-- Opis -->
+        {fair.description && (
+          <div>
+            <h2 class="text-lg font-bold text-stone-900">O targach</h2>
+            <p class="mt-3 leading-relaxed text-stone-600">{fair.description}</p>
+          </div>
+        )}
+
+        <!-- MAPA -->
+        {fair.lat && fair.lng && (
+          <div>
+            <h2 class="text-lg font-bold text-stone-900">Lokalizacja</h2>
+            <div class="mt-3 overflow-hidden rounded-xl border border-stone-200">
+              <iframe
+                width="100%"
+                height="300"
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=${fair.lng - 0.006},${fair.lat - 0.004},${fair.lng + 0.006},${fair.lat + 0.004}&layer=mapnik&marker=${fair.lat},${fair.lng}`}
+                loading="lazy"
+                title={`Mapa: ${fair.name}`}
+                class="block w-full"
+              ></iframe>
+            </div>
+            <a
+              href={`https://www.openstreetmap.org/?mlat=${fair.lat}&mlon=${fair.lng}#map=17/${fair.lat}/${fair.lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-2 inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-800"
+            >
+              Otwórz większą mapę →
+            </a>
+          </div>
+        )}
+
+        <!-- OPINIE -->
+        <div>
+          <div class="mb-4 flex items-center justify-between">
+            <h2 class="text-lg font-bold text-stone-900">Opinie</h2>
+            {fair.reviews.length > 0 && (
+              <span class="text-sm text-stone-500">{reviewLabel}</span>
+            )}
+          </div>
+
+          {fair.reviews.length === 0 ? (
+            <p class="text-sm text-stone-400">Brak opinii — bądź pierwszy!</p>
+          ) : (
+            <div class="flex flex-col gap-3">
+              {fair.reviews.map((r) => (
+                <ReviewCard author={r.author} rating={r.rating} text={r.text} date={r.date} />
+              ))}
+            </div>
+          )}
+
+          <!-- Formularz opinii -->
+          <form
+            action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+            method="POST"
+            class="mt-6 rounded-xl border border-stone-200 bg-stone-50 p-6"
+          >
+            <h3 class="mb-4 font-semibold text-stone-800">Podziel się opinią</h3>
+            <input type="hidden" name="targ" value={fair.name} />
+            <input type="hidden" name="slug" value={fair.slug} />
+
+            <div class="mb-4">
+              <label class="mb-1 block text-sm font-medium text-stone-700">
+                Imię lub pseudonim
+              </label>
+              <input
+                type="text"
+                name="author"
+                required
+                class="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label class="mb-1 block text-sm font-medium text-stone-700">Ocena</label>
+              <select
+                name="rating"
+                required
+                class="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100"
+              >
+                <option value="">Wybierz ocenę</option>
+                <option value="5">★★★★★ – Doskonały</option>
+                <option value="4">★★★★☆ – Bardzo dobry</option>
+                <option value="3">★★★☆☆ – Dobry</option>
+                <option value="2">★★☆☆☆ – Słaby</option>
+                <option value="1">★☆☆☆☆ – Bardzo słaby</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label class="mb-1 block text-sm font-medium text-stone-700">Twoja opinia</label>
+              <textarea
+                name="text"
+                required
+                rows="4"
+                placeholder="Co sądzisz o tych targach? Co warto kupić, kiedy przyjechać?"
+                class="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-800"
+            >
+              Wyślij opinię
+            </button>
+            <p class="mt-2 text-xs text-stone-400">
+              Opinie są weryfikowane przez redakcję przed publikacją.
+            </p>
+          </form>
+        </div>
+
+        <!-- WZMIANKI -->
+        {fair.mentions.length > 0 && (
+          <div>
+            <h2 class="mb-4 text-lg font-bold text-stone-900">Wzmianki w mediach</h2>
+            <div class="flex flex-col gap-3">
+              {fair.mentions.map((m) => (
+                <MentionCard
+                  source={m.source}
+                  url={m.url}
+                  snippet={m.snippet}
+                  date={m.date}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="space-y-4">
+
+        <!-- Termin -->
+        <div class="rounded-xl border border-brand-200 bg-brand-50 p-5">
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">Najbliższy termin</p>
+          <p class="mt-2 text-xl font-bold text-stone-900 capitalize">{formattedDate}</p>
+          {fair.recurringDesc && (
+            <p class="mt-1 text-sm text-brand-700">↻ {fair.recurringDesc}</p>
+          )}
+        </div>
+
+        <!-- Godziny -->
+        {fair.hours && (
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-stone-400">Godziny otwarcia</p>
+            <p class="mt-2 text-lg font-bold text-stone-800">{fair.hours}</p>
+          </div>
+        )}
+
+        <!-- Lokalizacja -->
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <p class="text-xs font-semibold uppercase tracking-wider text-stone-400">Lokalizacja</p>
+          <p class="mt-2 font-semibold text-stone-800">{fair.venue}</p>
+          <p class="text-sm text-stone-500">{fair.city}, {fair.voivodeship}</p>
+        </div>
+
+        <!-- Kategorie -->
+        <div class="rounded-xl border border-stone-200 bg-white p-5">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-stone-400">Kategorie</p>
+          <div class="flex flex-wrap gap-1.5">
+            {fair.categories.map((cat) => (
+              <a
+                href={`/targi/kategoria/${cat}/`}
+                class="rounded-full bg-brand-100 px-2.5 py-0.5 text-xs font-medium text-brand-800 hover:bg-brand-200"
+              >
+                {CATEGORY_LABELS[cat] ?? cat}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Link -->
+        {fair.url && (
+          <a
+            href={fair.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block rounded-xl border border-stone-200 bg-white p-5 text-sm font-semibold text-brand-700 transition-colors hover:bg-brand-50"
+          >
+            Oficjalna strona targów →
+          </a>
+        )}
+
+        <!-- Organizer -->
+        {fair.organizer && (
+          <div class="rounded-xl border border-stone-200 bg-white p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-stone-400">Organizator</p>
+            <p class="mt-2 text-sm text-stone-700">{fair.organizer}</p>
+          </div>
+        )}
+      </aside>
+    </div>
+  </section>
+
+  <!-- POWIĄZANE W TYM MIEŚCIE -->
+  {relatedFairs.length > 0 && (
+    <section class="border-t border-stone-100 bg-stone-50 px-4 py-10 sm:px-6">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-4 text-lg font-bold text-stone-900">
+          Inne targi w {fair.city}
+        </h2>
+        <div class="flex flex-col gap-3">
+          {relatedFairs.map((f) => (
+            <FairCard
+              slug={f.slug}
+              name={f.name}
+              city={f.city}
+              venue={f.venue}
+              nextDate={f.nextDate}
+              recurringDesc={f.recurringDesc}
+              categories={f.categories}
+              reviews={f.reviews}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>

@@ -1,0 +1,235 @@
+[
+  {
+    "slug": "targi-staroci-kolo-warszawa",
+    "name": "Targi Staroci na Kole",
+    "city": "Warszawa",
+    "citySlug": "warszawa",
+    "voivodeship": "mazowieckie",
+    "venue": "Bazar na Kole, ul. Obozowa 99",
+    "lat": 52.2285,
+    "lng": 20.9608,
+    "nextDate": "2026-05-03",
+    "recurring": "tygodniowo",
+    "recurringDesc": "każda niedziela, godz. 6:00–14:00",
+    "hours": "6:00–14:00",
+    "categories": ["antyki", "meble", "ceramika", "bizuteria"],
+    "organizer": "Bazar na Kole",
+    "url": "https://bazarwkole.pl",
+    "description": "Jeden z największych i najstarszych targów staroci w Polsce, działający od lat 60. XX wieku. Na Kole znajdziesz meble, ceramikę, szkło, obrazy, biżuterię i wiele innych przedmiotów z przeszłości. Targ czynny każdą niedzielę niezależnie od pogody — przyjeżdżają tu wystawcy z całej Polski.",
+    "reviews": [
+      {
+        "author": "Anna M.",
+        "rating": 5,
+        "text": "Byłam kilka razy i zawsze coś znalazłam. Ogromny wybór, dużo wystawców. Ceny można negocjować, a sprzedawcy są zazwyczaj chętni do rozmowy o historii swoich przedmiotów.",
+        "date": "2026-03-15"
+      },
+      {
+        "author": "Piotr K.",
+        "rating": 4,
+        "text": "Dobry targ, klimatyczne miejsce. Trochę drogo jak na targi staroci, ale można się potargować. Meble vintage w przyzwoitych cenach, ceramika PRL na każdym stoisku.",
+        "date": "2026-02-22"
+      },
+      {
+        "author": "Dorota W.",
+        "rating": 5,
+        "text": "Kultowe miejsce. Trzeba przyjechać wcześnie rano, przed 8:00, żeby złapać najlepsze rzeczy. Parking jest, ale bywa trudno w niedzielę.",
+        "date": "2026-01-18"
+      }
+    ],
+    "mentions": [
+      {
+        "source": "Gazeta Wyborcza Warszawa",
+        "url": "https://warszawa.wyborcza.pl/",
+        "snippet": "Bazar na Kole to jedno z ostatnich miejsc w Warszawie, gdzie można poczuć klimat dawnych targowisk i znaleźć prawdziwe antykwaryczne perełki.",
+        "date": "2025-11-10"
+      },
+      {
+        "source": "Time Out Warszawa",
+        "url": "https://www.timeout.com/warsaw/",
+        "snippet": "Warsaw's biggest flea market runs every Sunday rain or shine — a must-visit for vintage hunters.",
+        "date": "2025-09-05"
+      }
+    ]
+  },
+  {
+    "slug": "targi-staroci-rynek-glowny-krakow",
+    "name": "Targi Staroci na Rynku Głównym",
+    "city": "Kraków",
+    "citySlug": "krakow",
+    "voivodeship": "małopolskie",
+    "venue": "Rynek Główny (okolice Sukiennic)",
+    "lat": 50.0617,
+    "lng": 19.9373,
+    "nextDate": "2026-05-16",
+    "recurring": "miesiecznie",
+    "recurringDesc": "trzecia sobota miesiąca, godz. 8:00–16:00",
+    "hours": "8:00–16:00",
+    "categories": ["antyki", "ceramika", "obrazy", "ksiazki"],
+    "organizer": null,
+    "url": null,
+    "description": "Cykliczne targi staroci odbywające się na krakowskim Rynku Głównym w otoczeniu Sukiennic. Wyjątkowa atmosfera historycznego centrum Krakowa tworzy doskonałe tło dla kolekcjonerów i miłośników dawnych przedmiotów. Znajdziesz tu głównie ceramikę, stare książki, mapy, obrazy i biżuterię.",
+    "reviews": [
+      {
+        "author": "Krzysztof W.",
+        "rating": 5,
+        "text": "Niezwykłe miejsce, niezwykła atmosfera. Rynek Główny jako tło dla targów staroci — lepiej się nie da. Kupiłem tu mapę Krakowa z 1938 roku za rozsądną cenę.",
+        "date": "2026-04-19"
+      },
+      {
+        "author": "Magdalena R.",
+        "rating": 4,
+        "text": "Mniej stoisk niż np. na Kole w Warszawie, ale klimat wyjątkowy. Ceramika i porcelana są tu w dobrej cenie. Polecam przyjść rano.",
+        "date": "2026-03-22"
+      }
+    ],
+    "mentions": [
+      {
+        "source": "Kraków.pl (portal miasta)",
+        "url": "https://www.krakow.pl/",
+        "snippet": "Targi na Rynku Głównym cieszą się ogromną popularnością wśród krakowian i turystów — to stały element kulturalnego kalendarza miasta.",
+        "date": "2026-01-20"
+      }
+    ]
+  },
+  {
+    "slug": "targi-staroci-stary-rynek-poznan",
+    "name": "Targi Staroci – Stary Rynek",
+    "city": "Poznań",
+    "citySlug": "poznan",
+    "voivodeship": "wielkopolskie",
+    "venue": "Stary Rynek (okolice Ratusza)",
+    "lat": 52.4083,
+    "lng": 16.9335,
+    "nextDate": "2026-05-17",
+    "recurring": "miesiecznie",
+    "recurringDesc": "trzecia niedziela miesiąca",
+    "hours": null,
+    "categories": ["antyki", "meble", "numizmatyka", "ceramika"],
+    "organizer": null,
+    "url": null,
+    "description": "Targi staroci na poznańskim Starym Rynku to tradycja sięgająca lat 90. Wystawcy oferują szeroki wybór antyków, staroci, kolekcjonerskich monet i banknotów, a także mebli i ceramiki. Lokalizacja przy Ratuszu jest jedną z najpiękniejszych w Polsce.",
+    "reviews": [
+      {
+        "author": "Tomasz B.",
+        "rating": 4,
+        "text": "Solidny targ, dobry wybór monet i banknotów. Numizmatycy z całego Poznania tu się spotykają. Ceny rynkowe, ale można coś ciekawego trafić.",
+        "date": "2026-04-21"
+      }
+    ],
+    "mentions": []
+  },
+  {
+    "slug": "targi-staroci-hala-stulecia-wroclaw",
+    "name": "Targi Staroci przy Hali Stulecia",
+    "city": "Wrocław",
+    "citySlug": "wroclaw",
+    "voivodeship": "dolnośląskie",
+    "venue": "ul. Wystawowa 1, teren przy Hali Stulecia",
+    "lat": 51.1079,
+    "lng": 17.0773,
+    "nextDate": "2026-05-03",
+    "recurring": "miesiecznie",
+    "recurringDesc": "pierwsza niedziela miesiąca, godz. 8:00–15:00",
+    "hours": "8:00–15:00",
+    "categories": ["antyki", "meble", "ceramika", "winyle"],
+    "organizer": null,
+    "url": null,
+    "description": "Popularne targi staroci we Wrocławiu odbywające się na terenie przy zabytkowej Hali Stulecia (UNESCO). Bogata oferta antyków, starych mebli, ceramiki i płyt winylowych. Jedno z największych wydarzeń tego typu na Dolnym Śląsku.",
+    "reviews": [
+      {
+        "author": "Monika Z.",
+        "rating": 4,
+        "text": "Sporo wystawców, dobrze zorganizowane. Znalazłam piękny serwis kawowy Ćmielów za rozsądną cenę. Płyty winylowe od kilku wystawców w dobrym stanie.",
+        "date": "2026-04-06"
+      },
+      {
+        "author": "Ryszard P.",
+        "rating": 3,
+        "text": "Fajne miejsce, ale w ostatnich miesiącach spada liczba wystawców. Mam nadzieję, że to chwilowe. Meble wciąż w dobrej cenie.",
+        "date": "2026-03-02"
+      }
+    ],
+    "mentions": [
+      {
+        "source": "Wrocław Nasze Miasto",
+        "url": "https://wroclaw.naszemiasto.pl/",
+        "snippet": "Targi przy Hali Stulecia przyciągają w każdą pierwszą niedzielę miesiąca setki miłośników antyków i staroci z całego regionu.",
+        "date": "2026-02-05"
+      }
+    ]
+  },
+  {
+    "slug": "targi-staroci-plac-wolnosci-lodz",
+    "name": "Targi Staroci – Plac Wolności",
+    "city": "Łódź",
+    "citySlug": "lodz",
+    "voivodeship": "łódzkie",
+    "venue": "Plac Wolności",
+    "lat": 51.7714,
+    "lng": 19.4542,
+    "nextDate": "2026-05-24",
+    "recurring": "miesiecznie",
+    "recurringDesc": "czwarta niedziela miesiąca",
+    "hours": null,
+    "categories": ["antyki", "bizuteria", "zabawki", "ksiazki"],
+    "organizer": null,
+    "url": null,
+    "description": "Łódzkie targi staroci na Placu Wolności to stały punkt spotkań kolekcjonerów i miłośników vintage z całego regionu. W ofercie: przedwojenna biżuteria, zabawki PRL, stare książki i plakaty filmowe — to miejsce, gdzie historia łódzkiego przemysłu i kultury jest namacalna.",
+    "reviews": [],
+    "mentions": []
+  },
+  {
+    "slug": "targi-staroci-targ-rybny-gdansk",
+    "name": "Targi Staroci – Targ Rybny",
+    "city": "Gdańsk",
+    "citySlug": "gdansk",
+    "voivodeship": "pomorskie",
+    "venue": "Targ Rybny (Stare Miasto)",
+    "lat": 54.3500,
+    "lng": 18.6534,
+    "nextDate": "2026-05-30",
+    "recurring": "miesiecznie",
+    "recurringDesc": "ostatnia sobota miesiąca, godz. 9:00–16:00",
+    "hours": "9:00–16:00",
+    "categories": ["antyki", "militaria", "ceramika", "obrazy"],
+    "organizer": null,
+    "url": null,
+    "description": "Targi staroci w historycznym sercu Gdańska, na Targu Rybnym przy dawnym kanale portowym. Silna specjalność: militaria i marynistyka — tu można trafić na prawdziwe gdańskie osobliwości. Wyjątkowa lokalizacja w starówce przyciąga zarówno kolekcjonerów, jak i turystów.",
+    "reviews": [
+      {
+        "author": "Henryk S.",
+        "rating": 5,
+        "text": "Jedyne miejsce w Polsce, gdzie widziałem takie skupisko militariów morskich i pamiątek po Stoczni Gdańskiej. Dla historycznych pasjonatów — obowiązkowy punkt.",
+        "date": "2026-04-26"
+      }
+    ],
+    "mentions": [
+      {
+        "source": "Trojmiasto.pl",
+        "url": "https://www.trojmiasto.pl/",
+        "snippet": "Gdański Targ Rybny to jedno z najbardziej klimatycznych miejsc na targi staroci — historia czuć tu na każdym kroku.",
+        "date": "2026-03-30"
+      }
+    ]
+  },
+  {
+    "slug": "targi-staroci-rynek-katowice",
+    "name": "Śląskie Targi Staroci",
+    "city": "Katowice",
+    "citySlug": "katowice",
+    "voivodeship": "śląskie",
+    "venue": "Rynek (Śródmieście)",
+    "lat": 50.2598,
+    "lng": 19.0216,
+    "nextDate": "2026-05-10",
+    "recurring": "miesiecznie",
+    "recurringDesc": "druga niedziela miesiąca",
+    "hours": null,
+    "categories": ["antyki", "militaria", "numizmatyka", "winyle"],
+    "organizer": null,
+    "url": null,
+    "description": "Śląskie Targi Staroci odbywające się na katowickim Rynku to świetna okazja do znalezienia pamiątek po śląskim przemyśle, militariów i górniczych osobliwości. Mocne punkty: numizmatyka, militaria i stara grafika regionalna.",
+    "reviews": [],
+    "mentions": []
+  }
+]

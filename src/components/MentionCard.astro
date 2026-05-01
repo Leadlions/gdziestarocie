@@ -1,0 +1,34 @@
+---
+interface Props {
+  source: string;
+  url: string;
+  snippet: string;
+  date: string;
+}
+
+const { source, url, snippet, date } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString('pl-PL', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<div class="rounded-xl border border-stone-200 bg-white p-5">
+  <p class="mb-3 text-xs text-stone-400">{formattedDate}</p>
+  <p class="text-sm leading-relaxed text-stone-600 italic">
+    &ldquo;{snippet}&rdquo;
+  </p>
+  <div class="mt-4 flex items-center justify-between gap-4">
+    <span class="text-xs font-semibold text-stone-500">{source}</span>
+    <a
+      href={url}
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+      class="text-xs font-medium text-brand-700 hover:text-brand-800"
+    >
+      Czytaj artykuł →
+    </a>
+  </div>
+</div>

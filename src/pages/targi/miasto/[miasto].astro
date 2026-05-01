@@ -1,0 +1,100 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import FairCard from '../../../components/FairCard.astro';
+import allFairs from '../../../data/fairs.json';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const cityMap = new Map<string, string>();
+  for (const fair of allFairs) {
+    if (!cityMap.has(fair.citySlug)) cityMap.set(fair.citySlug, fair.city);
+  }
+
+  return [...cityMap.entries()].map(([slug, name]) => ({
+    params: { miasto: slug },
+    props: {
+      cityName: name,
+      citySlug: slug,
+      fairs: allFairs
+        .filter((f) => f.citySlug === slug)
+        .sort((a, b) => new Date(a.nextDate).getTime() - new Date(b.nextDate).getTime()),
+    },
+  }));
+};
+
+interface Props {
+  cityName: string;
+  citySlug: string;
+  fairs: typeof allFairs;
+}
+
+const { cityName, citySlug, fairs } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `Targi staroci w ${cityName}`,
+  url: `https://gdziestarocie.pl/targi/miasto/${citySlug}/`,
+  numberOfItems: fairs.length,
+  itemListElement: fairs.map((f, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: f.name,
+    url: `https://gdziestarocie.pl/targi/${f.slug}/`,
+  })),
+};
+---
+
+<Base
+  title={`Targi staroci w ${cityName} – gdziestarocie.pl`}
+  description={`Znajdź targi staroci i antykwaryczne w ${cityName}. Terminy, opinie i wzmianki medialne. ${fairs.length} ${fairs.length === 1 ? 'targ' : fairs.length < 5 ? 'targi' : 'targów'} w bazie.`}
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Targi', url: 'https://gdziestarocie.pl/targi/' },
+    { name: cityName, url: `https://gdziestarocie.pl/targi/miasto/${citySlug}/` },
+  ]}
+>
+  <section class="border-b border-stone-100 bg-gradient-to-b from-brand-50 to-white px-4 py-12 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      <a href="/" class="mb-4 inline-flex items-center gap-1 text-sm text-stone-500 hover:text-brand-700">
+        ← Wszystkie targi
+      </a>
+      <h1 class="mt-2 text-3xl font-bold text-stone-900 sm:text-4xl">
+        Targi staroci w {cityName}
+      </h1>
+      <p class="mt-3 text-stone-600">
+        {fairs.length === 0
+          ? 'Nie mamy jeszcze targów w tym mieście w bazie.'
+          : `${fairs.length} ${fairs.length === 1 ? 'targ' : fairs.length < 5 ? 'targi' : 'targów'} w bazie — kliknij w kartę, by zobaczyć opinie i szczegóły.`}
+      </p>
+    </div>
+  </section>
+
+  <section class="px-4 py-10 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      {fairs.length === 0 ? (
+        <div class="rounded-xl border border-dashed border-stone-300 bg-stone-50 px-6 py-12 text-center">
+          <p class="font-medium text-stone-600">Brak targów w tej miejscowości.</p>
+          <p class="mt-2 text-sm text-stone-400">
+            <a href="/" class="text-brand-600 hover:underline">Wróć na stronę główną</a> i przejrzyj wszystkie terminy.
+          </p>
+        </div>
+      ) : (
+        <div class="flex flex-col gap-3">
+          {fairs.map((f) => (
+            <FairCard
+              slug={f.slug}
+              name={f.name}
+              city={f.city}
+              venue={f.venue}
+              nextDate={f.nextDate}
+              recurringDesc={f.recurringDesc}
+              categories={f.categories}
+              reviews={f.reviews}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,263 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import FairCard from '../components/FairCard.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import allFairs from '../data/fairs.json';
+
+const blogPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 3);
+
+const sortedFairs = [...allFairs].sort(
+  (a, b) => new Date(a.nextDate).getTime() - new Date(b.nextDate).getTime()
+);
+
+const CATEGORIES = [
+  { name: 'Wszystkie', slug: '' },
+  { name: 'Antyki', slug: 'antyki' },
+  { name: 'Meble', slug: 'meble' },
+  { name: 'Ceramika', slug: 'ceramika' },
+  { name: 'Biżuteria', slug: 'bizuteria' },
+  { name: 'Numizmatyka', slug: 'numizmatyka' },
+  { name: 'Książki', slug: 'ksiazki' },
+  { name: 'Zabawki', slug: 'zabawki' },
+  { name: 'Militaria', slug: 'militaria' },
+  { name: 'Obrazy', slug: 'obrazy' },
+  { name: 'Winyle', slug: 'winyle' },
+];
+
+const CATEGORY_LINKS = [
+  { name: 'Antyki', slug: 'antyki', icon: '🏺', desc: 'Przedmioty z przeszłości, kolekcjonerskie rarytasy.' },
+  { name: 'Meble vintage', slug: 'meble', icon: '🪑', desc: 'Szafy, kredensy, fotele z duszą.' },
+  { name: 'Ceramika', slug: 'ceramika', icon: '🍶', desc: 'Ćmielów, Włocławek, stara porcelana.' },
+  { name: 'Biżuteria', slug: 'bizuteria', icon: '💎', desc: 'Złoto, srebro, zegarki kieszonkowe.' },
+  { name: 'Numizmatyka', slug: 'numizmatyka', icon: '🪙', desc: 'Monety, banknoty, znaczki pocztowe.' },
+  { name: 'Militaria', slug: 'militaria', icon: '🎖️', desc: 'Ordery, mundury, pamiątki wojenne.' },
+  { name: 'Winyle', slug: 'winyle', icon: '🎵', desc: 'Płyty winylowe, magnetofony, sprzęt audio.' },
+  { name: 'Obrazy', slug: 'obrazy', icon: '🖼️', desc: 'Malarstwo, grafiki, stare fotografie.' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'gdziestarocie.pl',
+  url: 'https://gdziestarocie.pl/',
+  description: 'Portal targów staroci i antyków w Polsce',
+  inLanguage: 'pl',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://gdziestarocie.pl/?miasto={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+};
+---
+
+<Base
+  title="Gdzie targi staroci? – gdziestarocie.pl"
+  description="Kompletny kalendarz targów staroci i antyków w Polsce. Znajdź targ w swoim mieście, przeczytaj opinie i sprawdź wzmianki medialne. Warszawa, Kraków, Wrocław i więcej."
+  jsonLd={jsonLd}
+>
+  <!-- HERO -->
+  <section class="bg-gradient-to-b from-brand-50 to-white px-4 pb-12 pt-16 sm:px-6 sm:pt-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-600">Kalendarz targów staroci w Polsce</p>
+      <h1 class="text-4xl font-bold leading-tight text-stone-900 sm:text-5xl">
+        Gdzie targi staroci?
+      </h1>
+      <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-stone-600">
+        Jeden portal, wszystkie terminy. Znajdź targi antykwaryczne w swoim mieście,
+        sprawdź opinie i wzmianki medialne — zanim wyruszysz.
+      </p>
+
+      <!-- Wyszukiwarka -->
+      <div class="mx-auto mt-8 max-w-xl">
+        <div class="relative">
+          <svg class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input
+            id="city-search"
+            type="text"
+            placeholder="Wpisz miasto, np. Warszawa, Kraków, Gdańsk..."
+            autocomplete="off"
+            class="w-full rounded-xl border border-stone-200 bg-white py-4 pl-12 pr-4 text-stone-900 shadow-sm placeholder:text-stone-400 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTR KATEGORII -->
+  <section class="border-b border-stone-100 bg-white px-4 py-4 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      <div class="flex flex-wrap gap-2">
+        {CATEGORIES.map((cat) => (
+          <button
+            data-cat-btn={cat.slug}
+            class="cat-btn rounded-full border border-stone-200 bg-white px-3 py-1.5 text-sm font-medium text-stone-600 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
+          >
+            {cat.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTA TARGÓW -->
+  <section class="px-4 py-10 sm:px-6">
+    <div class="mx-auto max-w-4xl">
+      <div class="mb-5 flex items-center justify-between">
+        <h2 class="text-xl font-bold text-stone-900">Nadchodzące targi</h2>
+        <span id="fair-count" class="rounded-full bg-brand-50 px-3 py-1 text-sm font-medium text-brand-700">
+          {sortedFairs.length} targów
+        </span>
+      </div>
+
+      <div id="fair-list" class="flex flex-col gap-3">
+        {sortedFairs.map((f) => (
+          <div
+            class="fair-item"
+            data-city={f.citySlug}
+            data-categories={f.categories.join(',')}
+          >
+            <FairCard
+              slug={f.slug}
+              name={f.name}
+              city={f.city}
+              venue={f.venue}
+              nextDate={f.nextDate}
+              recurringDesc={f.recurringDesc}
+              categories={f.categories}
+              reviews={f.reviews}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div id="no-results" class="hidden rounded-xl border border-dashed border-stone-300 bg-stone-50 px-6 py-12 text-center">
+        <p class="font-medium text-stone-600">Brak targów spełniających wybrane kryteria.</p>
+        <p class="mt-2 text-sm text-stone-400">Spróbuj wyszukać inne miasto lub wybrać inną kategorię.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK TO DZIAŁA -->
+  <section class="border-y border-stone-100 bg-stone-50 px-4 py-10 sm:px-6">
+    <div class="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+      {[
+        { step: '01', title: 'Znajdź targi', desc: 'Wpisz miasto lub wybierz kategorię — zobaczysz najbliższe terminy.' },
+        { step: '02', title: 'Sprawdź opinie', desc: 'Przeczytaj co mówią inni kolekcjonerzy przed wizytą.' },
+        { step: '03', title: 'Jedź i zbieraj', desc: 'Wejdź wcześnie rano — najlepsze eksponaty znikają przed południem.' },
+      ].map(({ step, title, desc }) => (
+        <div class="flex items-start gap-4">
+          <span class="shrink-0 text-2xl font-bold text-brand-200">{step}</span>
+          <div>
+            <p class="font-semibold text-stone-800">{title}</p>
+            <p class="mt-1 text-sm text-stone-500">{desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- KATEGORIE GRID -->
+  <section class="px-4 py-16 sm:px-6">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="text-2xl font-bold text-stone-900">Przeglądaj według kategorii</h2>
+      <p class="mt-2 text-stone-500">Znajdź targi, które oferują to, czego szukasz.</p>
+      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {CATEGORY_LINKS.map((cat) => (
+          <a
+            href={`/targi/kategoria/${cat.slug}/`}
+            class="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+          >
+            <span class="text-2xl">{cat.icon}</span>
+            <p class="mt-2 font-semibold text-stone-800 group-hover:text-brand-700">{cat.name}</p>
+            <p class="mt-1 text-xs text-stone-500">{cat.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  {blogPosts.length > 0 && (
+    <section class="bg-stone-50 px-4 py-16 sm:px-6">
+      <div class="mx-auto max-w-6xl">
+        <div class="flex items-end justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-stone-900">Blog</h2>
+            <p class="mt-1 text-stone-500">Poradniki, historia i ciekawostki ze świata antyków.</p>
+          </div>
+          <a href="/blog/" class="text-sm font-medium text-brand-600 hover:text-brand-800">
+            Wszystkie wpisy →
+          </a>
+        </div>
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map((post) => (
+            <BlogPostCard
+              title={post.data.title}
+              description={post.data.description}
+              publishedAt={post.data.publishedAt}
+              tags={post.data.tags}
+              href={`/blog/${post.slug}/`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>
+
+<script>
+  function norm(str: string): string {
+    return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  }
+
+  const cityInput = document.getElementById('city-search') as HTMLInputElement;
+  const items = document.querySelectorAll<HTMLElement>('.fair-item');
+  const noResults = document.getElementById('no-results') as HTMLElement;
+  const countEl = document.getElementById('fair-count') as HTMLElement;
+  const catBtns = document.querySelectorAll<HTMLElement>('[data-cat-btn]');
+
+  const total = items.length;
+  let activeCategory = '';
+
+  function applyFilters() {
+    const cityQuery = norm(cityInput?.value.trim() ?? '');
+    let visible = 0;
+
+    items.forEach((item) => {
+      const city = norm(item.dataset.city ?? '');
+      const cats = (item.dataset.categories ?? '').split(',');
+      const cityMatch = !cityQuery || city.includes(cityQuery);
+      const catMatch = !activeCategory || cats.includes(activeCategory);
+      const show = cityMatch && catMatch;
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    noResults.classList.toggle('hidden', visible > 0);
+    countEl.textContent = visible === total ? `${total} targów` : `${visible} z ${total} targów`;
+  }
+
+  cityInput?.addEventListener('input', applyFilters);
+
+  catBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.catBtn ?? '';
+      activeCategory = activeCategory === cat ? '' : cat;
+      catBtns.forEach((b) => {
+        const isActive = b.dataset.catBtn === activeCategory && activeCategory !== '';
+        b.classList.toggle('bg-brand-600', isActive);
+        b.classList.toggle('text-white', isActive);
+        b.classList.toggle('border-brand-600', isActive);
+        b.classList.toggle('bg-white', !isActive);
+        b.classList.toggle('text-stone-600', !isActive);
+        b.classList.toggle('border-stone-200', !isActive);
+      });
+      applyFilters();
+    });
+  });
+</script>

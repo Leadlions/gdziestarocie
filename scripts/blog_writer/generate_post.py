@@ -24,7 +24,7 @@ TOPICS_FILE = Path(__file__).parent / "topics.json"
 BLOG_DIR    = ROOT / "src" / "content" / "blog"
 
 # ── model ────────────────────────────────────────────────────────────────────
-MODEL      = "claude-3-haiku-20240307"
+MODEL      = "claude-3-5-sonnet-20241022"
 MAX_TOKENS = 2048
 
 # ── prompts ──────────────────────────────────────────────────────────────────
